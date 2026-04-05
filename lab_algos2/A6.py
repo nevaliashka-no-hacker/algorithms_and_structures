@@ -3,37 +3,6 @@ class ListNode:
         self.val = val
         self.next = next
 
-'''    
-class ListLinked:
-    def __init__(self):
-        self.head = None
-
-    #вставка элемента в конец
-    def push_back(self, val):
-        new_node = ListNode(val)
-        if not self.head:
-            self.head = new_node
-            return
-        cur = self.head
-        while cur.next:
-            cur = cur.next
-        cur.next = new_node
-
-    #удаление элемента по значению
-    def remove(self, val):
-        dummy = ListNode(val)
-        dummy.next = self.head
-        prev, cur = dummy, self.head
-        while cur:
-            if cur.val == val:
-                prev.next = cur.next
-                self.head = dummy.next
-                return True
-            prev = cur
-            cur = cur.next
-        return False
-'''
-
 
 def build_list(values):
     """Создать список из массива: build_list([1,2,3]) → 1→2→3→None"""
@@ -54,13 +23,7 @@ def print_list(head):
 
 
 def move_first_to_end(head):
-    '''Переместить первый элемент списка в конец:
-       1 проверка на пустой или одноэлементный
-       2 находим первый
-       3 находим новый первый (второй в старом)
-       4 идем к последнему
-       5 добавляем первый после последнего
-       6 в новом последнем нет указателя на следующий, поэтому None'''
+    '''Переместить первый элемент списка в конец'''
     
     if not head or not head.next:
         return head
