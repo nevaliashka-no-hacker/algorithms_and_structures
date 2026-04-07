@@ -36,7 +36,7 @@ def get_intersection(headA, headB) -> int | None:
     curB = headB
     while lenA > lenB:
         lenA -= 1
-        curA = cur.next
+        curA = curA.next
 
     while lenB > lenA:
         lenB -= 1
