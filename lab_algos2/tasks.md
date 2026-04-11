@@ -15,7 +15,8 @@ class ListNode:
 
 ```python
 def build_list(values):
-    """Создать список из массива: build_list([1,2,3]) → 1→2→3→None"""
+    """Создать список из массива: 
+       build_list([1,2,3]) → 1→2→3→None"""
     dummy = ListNode(0)
     cur = dummy
     for v in values:
