@@ -28,7 +28,7 @@ class Queue:
     def dequeue(self):
         #print("dequeue", len(self.stackback))
         temp = self.stackback.copy()
-        self.stackhead = []
+        self.clean_stackhead()
         while temp:
             self.stackhead.append(temp[-1])
             temp.pop()
@@ -43,7 +43,7 @@ class Queue:
         if not self.stackback:
             return None
         temp = self.stackback.copy()
-        self.stackhead = []
+        self.clean_stackhead()
         while temp:
             self.stackhead.append(temp[-1])
             temp.pop()
@@ -61,6 +61,12 @@ class Queue:
         while temp:
             self.stackback.append(temp[-1])
             temp.pop()
+
+    #чистка начала, а то мусор еще добавится с
+    #прошлых заполнений этого стека
+    def clean_stackhead(self):
+        while self.stackhead:
+            self.stackhead.pop()
     
 def main():
     #тест
