@@ -28,23 +28,22 @@ from collections import deque
 
 class RecentCounter():
     def __init__(self):
-        self.pings = deque()
+        self.pings = deque([])
 
     def ping(self, val):
         temp = []
         result = 0
         self.pings.append(val)
-        clock = self.pings.copy()
+        clock = self.pings
         while clock:
-            temp.append(clock[0])
+            temp.append(self.pings[0])
             clock.popleft()
-        temp_range = list(range(temp[0] - 3000, temp[0] + 1))
-        clock = self.pings.copy()
+        temp_range = list(range(temp[0] - 3000, temp[0]))
+        clock = self.pings
         while clock:
-            if clock[0] in temp_range:
+            if self.clock[0] in temp_range:
                 result += 1
             clock.popleft()
-        print(self.pings)
         return result
 
 def main():
