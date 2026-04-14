@@ -25,7 +25,7 @@ def trap_rain_water(columns):
         for j in range(max(columns)):
             if columns
 
-    return matrix
+    #return matrix
 
     for i in range(n):
         stack.append(columns[i])
