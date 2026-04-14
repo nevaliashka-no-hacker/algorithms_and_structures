@@ -4,8 +4,8 @@
 
 class Queue:
     def __init__(self):
-        self.stackback = []
-        self.stackhead = []
+        self.stackback = [] # главный
+        self.stackhead = [] # помогатор
 
     #добавление
     def enqueue(self, item):
