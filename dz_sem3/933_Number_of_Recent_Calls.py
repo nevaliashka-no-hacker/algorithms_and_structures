@@ -28,30 +28,28 @@ from collections import deque
 
 class RecentCounter():
     def __init__(self):
-        self.pings = deque([])
+        self.pings = deque()
 
-    def ping(self, val):
-        temp = []
+    def ping(self, value):
+        self.pings.append(value)
+        temp = self.pings.copy()
         result = 0
-        self.pings.append(val)
-        clock = self.pings
-        while clock:
-            temp.append(self.pings[0])
-            clock.popleft()
-        temp_range = list(range(temp[0] - 3000, temp[0]))
-        clock = self.pings
-        while clock:
-            if self.clock[0] in temp_range:
+        while temp:
+            if value - 3000 <= temp[0] <= value:
                 result += 1
-            clock.popleft()
+            temp.popleft()
         return result
 
 def main():
     rec = RecentCounter()
-    print(rec.ping(1)) # запросы = [1], диапазон равен [-2999,1], возвращает 1 
-    print(rec.ping(100)) # запросы = [1, 100], диапазон равен [-2900,100], возврат 2 
-    print(rec.ping(3001)) # запросы = [1, 100, 3001], диапазон равен [1,3001], возврат 3 
-    print(rec.ping(3002)) # запросы = [1, 100, 3001, 3002], диапазон равен [2,3002], возврат 3
+    print(rec.ping(1)) # запросы = [1], диапазон равен [-2999,1],
+                       # возвращает 1 
+    print(rec.ping(100)) # запросы = [1, 100], диапазон равен [-2900,100],
+                         # возврат 2 
+    print(rec.ping(3001)) # запросы = [1, 100, 3001], диапазон равен [1,3001],
+                          # возврат 3 
+    print(rec.ping(3002)) # запросы = [1, 100, 3001, 3002],
+                          # диапазон равен [2,3002], возврат 3
 
 if __name__ == "__main__":
     main()
