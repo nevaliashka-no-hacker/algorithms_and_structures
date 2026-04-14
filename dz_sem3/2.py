@@ -4,7 +4,7 @@
 
 from collections import deque
 
-def is_valid(parentheses) -> bool:
+def is_valid(parentheses):
     matching = {')': '(', ']': '[', '}': '{'}
     queue = deque()
     for ch in parentheses:
