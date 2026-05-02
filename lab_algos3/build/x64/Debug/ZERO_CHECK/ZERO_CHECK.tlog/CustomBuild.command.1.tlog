@@ -1,0 +1,10 @@
+^C:\USERS\NEVAL\ONEDRIVE\DESKTOP\ALGORITHMS_AND_STRUCTURES\LAB_ALGOS3\BUILD\CMAKEFILES\79EEAA7AD0EE5AA70523734FC065B4C8\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3 -BC:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/lab3.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

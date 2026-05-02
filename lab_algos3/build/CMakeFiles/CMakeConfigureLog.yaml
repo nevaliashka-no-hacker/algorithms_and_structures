@@ -1,0 +1,1373 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Версия MSBuild 18.3.0-release-26070-10+3972042b7 для .NET Framework
+      Сборка начата 02.05.2026 10:19:38.
+      
+      Проект "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\4.3.0-rc1\\CompilerIdC\\CompilerIdC.vcxproj" в узле 1 (целевые объекты по умолчанию).
+      PrepareForBuild:
+        Создание каталога "Debug\\".
+        Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+        Создание каталога "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Создание "Debug\\CompilerIdC.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+        Обращение к "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\4.3.0-rc1\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Файл "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" удаляется.
+        Обращение к "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Сборка проекта "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\4.3.0-rc1\\CompilerIdC\\CompilerIdC.vcxproj" завершена (целевые объекты по умолчанию).
+      
+      Сборка успешно завершена.
+          Предупреждений: 0
+          Ошибок: 0
+      
+      Прошло времени 00:00:02.66
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/4.3.0-rc1/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/"
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/"
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lld-link.com"
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lld-link.exe"
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lld-link"
+      - "C:/Program Files/PowerShell/7/lld-link.com"
+      - "C:/Program Files/PowerShell/7/lld-link.exe"
+      - "C:/Program Files/PowerShell/7/lld-link"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/lld-link"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/lld-link.com"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/lld-link.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/lld-link"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/lld-link.com"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/lld-link.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/lld-link"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/lld-link.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/lld-link.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/neval/.dotnet/tools/lld-link.com"
+      - "C:/Users/neval/.dotnet/tools/lld-link.exe"
+      - "C:/Users/neval/.dotnet/tools/lld-link"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/lld-link.com"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/lld-link"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/neval/AppData/Local/Python/bin/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Python/bin/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Python/bin/lld-link"
+      - "C:/opencv/build/x64/vc16/bin/lld-link.com"
+      - "C:/opencv/build/x64/vc16/bin/lld-link.exe"
+      - "C:/opencv/build/x64/vc16/bin/lld-link"
+      - "C:/Users/neval/work_with_libs/opencv/build/lld-link.com"
+      - "C:/Users/neval/work_with_libs/opencv/build/lld-link.exe"
+      - "C:/Users/neval/work_with_libs/opencv/build/lld-link"
+      - "C:/zbar/bin/lld-link.com"
+      - "C:/zbar/bin/lld-link.exe"
+      - "C:/zbar/bin/lld-link"
+      - "C:/opencv/build/bin/lld-link.com"
+      - "C:/opencv/build/bin/lld-link.exe"
+      - "C:/opencv/build/bin/lld-link"
+      - "C:/msys64/ucrt64/bin/lld-link.com"
+      - "C:/msys64/ucrt64/bin/lld-link.exe"
+      - "C:/msys64/ucrt64/bin/lld-link"
+      - "C:/msys64/mingw64/bin/lld-link.com"
+      - "C:/msys64/mingw64/bin/lld-link.exe"
+      - "C:/msys64/mingw64/bin/lld-link"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.com"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.exe"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/"
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/link.com"
+    found: "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/"
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/mt.com"
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/mt.exe"
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/mt"
+      - "C:/Program Files/PowerShell/7/mt.com"
+      - "C:/Program Files/PowerShell/7/mt.exe"
+      - "C:/Program Files/PowerShell/7/mt"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/mt.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/mt.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/mt"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/mt.com"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/mt.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/mt"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/mt.com"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/mt.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/mt"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/mt.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/mt.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files/dotnet/mt.com"
+      - "C:/Program Files/dotnet/mt.exe"
+      - "C:/Program Files/dotnet/mt"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt"
+      - "C:/Program Files/Git/cmd/mt.com"
+      - "C:/Program Files/Git/cmd/mt.exe"
+      - "C:/Program Files/Git/cmd/mt"
+      - "C:/Program Files/CMake/bin/mt.com"
+      - "C:/Program Files/CMake/bin/mt.exe"
+      - "C:/Program Files/CMake/bin/mt"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/mt"
+      - "C:/Users/neval/.dotnet/tools/mt.com"
+      - "C:/Users/neval/.dotnet/tools/mt.exe"
+      - "C:/Users/neval/.dotnet/tools/mt"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/mt.com"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/mt.exe"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/mt"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/mt.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/mt.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/mt"
+      - "C:/Users/neval/AppData/Local/Python/bin/mt.com"
+      - "C:/Users/neval/AppData/Local/Python/bin/mt.exe"
+      - "C:/Users/neval/AppData/Local/Python/bin/mt"
+      - "C:/opencv/build/x64/vc16/bin/mt.com"
+      - "C:/opencv/build/x64/vc16/bin/mt.exe"
+      - "C:/opencv/build/x64/vc16/bin/mt"
+      - "C:/Users/neval/work_with_libs/opencv/build/mt.com"
+      - "C:/Users/neval/work_with_libs/opencv/build/mt.exe"
+      - "C:/Users/neval/work_with_libs/opencv/build/mt"
+      - "C:/zbar/bin/mt.com"
+      - "C:/zbar/bin/mt.exe"
+      - "C:/zbar/bin/mt"
+      - "C:/opencv/build/bin/mt.com"
+      - "C:/opencv/build/bin/mt.exe"
+      - "C:/opencv/build/bin/mt"
+      - "C:/msys64/ucrt64/bin/mt.com"
+      - "C:/msys64/ucrt64/bin/mt.exe"
+      - "C:/msys64/ucrt64/bin/mt"
+      - "C:/msys64/mingw64/bin/mt.com"
+      - "C:/msys64/mingw64/bin/mt.exe"
+      - "C:/msys64/mingw64/bin/mt"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/mt.com"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/mt.exe"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/"
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lib.com"
+    found: "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Версия MSBuild 18.3.0-release-26070-10+3972042b7 для .NET Framework
+      Сборка начата 02.05.2026 10:19:41.
+      
+      Проект "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\4.3.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" в узле 1 (целевые объекты по умолчанию).
+      PrepareForBuild:
+        Создание каталога "Debug\\".
+        Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+        Создание каталога "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Создание "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+        Обращение к "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\4.3.0-rc1\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Файл "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" удаляется.
+        Обращение к "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Сборка проекта "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\4.3.0-rc1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" завершена (целевые объекты по умолчанию).
+      
+      Сборка успешно завершена.
+          Предупреждений: 0
+          Ошибок: 0
+      
+      Прошло времени 00:00:01.35
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/4.3.0-rc1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/"
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+    searched_directories:
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lld-link.com"
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lld-link.exe"
+      - "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/lld-link"
+      - "C:/Program Files/PowerShell/7/lld-link.com"
+      - "C:/Program Files/PowerShell/7/lld-link.exe"
+      - "C:/Program Files/PowerShell/7/lld-link"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/lld-link"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/lld-link.com"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/lld-link.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/lld-link"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/lld-link.com"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/lld-link.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/lld-link"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/lld-link.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/lld-link.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files/CMake/bin/lld-link.com"
+      - "C:/Program Files/CMake/bin/lld-link.exe"
+      - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "C:/Users/neval/.dotnet/tools/lld-link.com"
+      - "C:/Users/neval/.dotnet/tools/lld-link.exe"
+      - "C:/Users/neval/.dotnet/tools/lld-link"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/lld-link.com"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/lld-link"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/neval/AppData/Local/Python/bin/lld-link.com"
+      - "C:/Users/neval/AppData/Local/Python/bin/lld-link.exe"
+      - "C:/Users/neval/AppData/Local/Python/bin/lld-link"
+      - "C:/opencv/build/x64/vc16/bin/lld-link.com"
+      - "C:/opencv/build/x64/vc16/bin/lld-link.exe"
+      - "C:/opencv/build/x64/vc16/bin/lld-link"
+      - "C:/Users/neval/work_with_libs/opencv/build/lld-link.com"
+      - "C:/Users/neval/work_with_libs/opencv/build/lld-link.exe"
+      - "C:/Users/neval/work_with_libs/opencv/build/lld-link"
+      - "C:/zbar/bin/lld-link.com"
+      - "C:/zbar/bin/lld-link.exe"
+      - "C:/zbar/bin/lld-link"
+      - "C:/opencv/build/bin/lld-link.com"
+      - "C:/opencv/build/bin/lld-link.exe"
+      - "C:/opencv/build/bin/lld-link"
+      - "C:/msys64/ucrt64/bin/lld-link.com"
+      - "C:/msys64/ucrt64/bin/lld-link.exe"
+      - "C:/msys64/ucrt64/bin/lld-link"
+      - "C:/msys64/mingw64/bin/lld-link.com"
+      - "C:/msys64/mingw64/bin/lld-link.exe"
+      - "C:/msys64/mingw64/bin/lld-link"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.com"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.exe"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC.cmake:583 (enable_language)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC.cmake:556 (__windows_compiler_msvc_enable_rc)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeCInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "C:/Program Files/PowerShell/7/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/neval/.dotnet/tools/"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Users/neval/AppData/Local/Python/bin/"
+      - "C:/opencv/build/x64/vc16/bin/"
+      - "C:/Users/neval/work_with_libs/opencv/build/"
+      - "C:/zbar/bin/"
+      - "C:/opencv/build/bin/"
+      - "C:/msys64/ucrt64/bin/"
+      - "C:/msys64/mingw64/bin/"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/lab3/bin/"
+      - "C:/Program Files (x86)/lab3/sbin/"
+      - "C:/Program Files (x86)/lab3/"
+    searched_directories:
+      - "C:/Program Files/PowerShell/7/rc.com"
+      - "C:/Program Files/PowerShell/7/rc.exe"
+      - "C:/Program Files/PowerShell/7/rc"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/rc.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/rc.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/rc"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/rc.com"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/rc.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-25/bin/rc"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/rc.com"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/rc.exe"
+      - "C:/Program Files/Axiom/AxiomJDK-21/bin/rc"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/rc.com"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/rc.exe"
+      - "C:/Program Files/Eclipse Adoptium/jdk-25.0.1.8-hotspot/bin/rc"
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files/dotnet/rc.com"
+      - "C:/Program Files/dotnet/rc.exe"
+      - "C:/Program Files/dotnet/rc"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc"
+      - "C:/Program Files/Git/cmd/rc.com"
+      - "C:/Program Files/Git/cmd/rc.exe"
+      - "C:/Program Files/Git/cmd/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/neval/AppData/Local/Microsoft/WindowsApps/rc"
+      - "C:/Users/neval/.dotnet/tools/rc.com"
+      - "C:/Users/neval/.dotnet/tools/rc.exe"
+      - "C:/Users/neval/.dotnet/tools/rc"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/rc.com"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/rc.exe"
+      - "C:/Users/neval/AppData/Local/GitHubDesktop/bin/rc"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/rc.com"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/rc.exe"
+      - "C:/Users/neval/AppData/Local/Programs/Microsoft VS Code/bin/rc"
+      - "C:/Users/neval/AppData/Local/Python/bin/rc.com"
+      - "C:/Users/neval/AppData/Local/Python/bin/rc.exe"
+      - "C:/Users/neval/AppData/Local/Python/bin/rc"
+      - "C:/opencv/build/x64/vc16/bin/rc.com"
+      - "C:/opencv/build/x64/vc16/bin/rc.exe"
+      - "C:/opencv/build/x64/vc16/bin/rc"
+      - "C:/Users/neval/work_with_libs/opencv/build/rc.com"
+      - "C:/Users/neval/work_with_libs/opencv/build/rc.exe"
+      - "C:/Users/neval/work_with_libs/opencv/build/rc"
+      - "C:/zbar/bin/rc.com"
+      - "C:/zbar/bin/rc.exe"
+      - "C:/zbar/bin/rc"
+      - "C:/opencv/build/bin/rc.com"
+      - "C:/opencv/build/bin/rc.exe"
+      - "C:/opencv/build/bin/rc"
+      - "C:/msys64/ucrt64/bin/rc.com"
+      - "C:/msys64/ucrt64/bin/rc.exe"
+      - "C:/msys64/ucrt64/bin/rc"
+      - "C:/msys64/mingw64/bin/rc.com"
+      - "C:/msys64/mingw64/bin/rc.exe"
+      - "C:/msys64/mingw64/bin/rc"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/rc.com"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/rc.exe"
+      - "C:/Users/neval/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "C:/Program Files/CMake/bin/rc.com"
+      - "C:/Program Files/CMake/bin/rc.exe"
+      - "C:/Program Files/CMake/bin/rc"
+      - "C:/Program Files/CMake/sbin/rc.com"
+      - "C:/Program Files/CMake/sbin/rc.exe"
+      - "C:/Program Files/CMake/sbin/rc"
+      - "C:/Program Files/CMake/rc.com"
+      - "C:/Program Files/CMake/rc.exe"
+      - "C:/Program Files/CMake/rc"
+      - "C:/Program Files (x86)/lab3/bin/rc.com"
+      - "C:/Program Files (x86)/lab3/bin/rc.exe"
+      - "C:/Program Files (x86)/lab3/bin/rc"
+      - "C:/Program Files (x86)/lab3/sbin/rc.com"
+      - "C:/Program Files (x86)/lab3/sbin/rc.exe"
+      - "C:/Program Files (x86)/lab3/sbin/rc"
+      - "C:/Program Files (x86)/lab3/rc.com"
+      - "C:/Program Files (x86)/lab3/rc.exe"
+      - "C:/Program Files (x86)/lab3/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files\\PowerShell\\7"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-25\\bin\\"
+        - "C:\\Program Files\\Axiom\\AxiomJDK-21\\bin\\"
+        - "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\opencv\\build\\x64\\vc16\\bin"
+        - "C:\\Program Files\\PowerShell\\7\\"
+        - "C:\\Users\\neval\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\neval\\.dotnet\\tools"
+        - "C:\\Users\\neval\\AppData\\Local\\GitHubDesktop\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+        - "C:\\Users\\neval\\AppData\\Local\\Python\\bin"
+        - "C:\\Users\\neval\\work_with_libs\\opencv\\build"
+        - "C:\\ZBar\\bin"
+        - "C:\\opencv\\build\\bin"
+        - "C:\\msys64\\ucrt64\\bin"
+        - "C:\\msys64\\mingw64\\bin"
+        - "c:\\Users\\neval\\.vscode\\extensions\\ms-python.debugpy-2025.18.0-win32-x64\\bundled\\scripts\\noConfigScripts"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/lab3"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/lab3"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-hq4pvt"
+      binary: "C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-hq4pvt"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-hq4pvt'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f5b70.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        ╨Т╨╡╤А╤Б╨╕╤П MSBuild 18.3.0-release-26070-10+3972042b7 ╨┤╨╗╤П .NET Framework
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 02.05.2026 10:19:43.
+        
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hq4pvt\\cmTC_f5b70.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        PrepareForBuild:
+          ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hq4pvt\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_f5b70.dir\\Debug\\cmTC_f5b70.tlog\\".
+        InitializeBuildStatus:
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_f5b70.dir\\Debug\\cmTC_f5b70.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f5b70.dir\\Debug\\cmTC_f5b70.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_f5b70.dir\\Debug\\\\" /Fd"cmTC_f5b70.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.50.35725 ╨┤╨╗╤П x64
+          (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_f5b70.dir\\Debug\\\\" /Fd"cmTC_f5b70.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hq4pvt\\Debug\\cmTC_f5b70.exe" /INCREMENTAL /ILK:"cmTC_f5b70.dir\\Debug\\cmTC_f5b70.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-hq4pvt/Debug/cmTC_f5b70.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-hq4pvt/Debug/cmTC_f5b70.lib" /MACHINE:X64 cmTC_f5b70.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_f5b70.vcxproj -> C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hq4pvt\\Debug\\cmTC_f5b70.exe
+        FinalizeBuildStatus:
+          ╨д╨░╨╣╨╗ "cmTC_f5b70.dir\\Debug\\cmTC_f5b70.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f5b70.dir\\Debug\\cmTC_f5b70.tlog\\cmTC_f5b70.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-hq4pvt\\cmTC_f5b70.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        
+        ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
+            ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
+            ╨Ю╤И╨╕╨▒╨╛╨║: 0
+        
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.00
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.50.35725.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-e6qquw"
+      binary: "C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-e6qquw"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-e6qquw'
+        
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Professional/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_73074.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        ╨Т╨╡╤А╤Б╨╕╤П MSBuild 18.3.0-release-26070-10+3972042b7 ╨┤╨╗╤П .NET Framework
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 02.05.2026 10:19:44.
+        
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6qquw\\cmTC_73074.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        PrepareForBuild:
+          ╨б╤В╤А╤Г╨║╤В╤Г╤А╨╕╤А╨╛╨▓╨░╨╜╨╜╤Л╨╣ ╨▓╤Л╨▓╨╛╨┤ ╨▓╨║╨╗╤О╤З╨╡╨╜. ╨д╨╛╤А╨╝╨░╤В╨╕╤А╨╛╨▓╨░╨╜╨╕╨╡ ╨┤╨╕╨░╨│╨╜╨╛╤Б╤В╨╕╨║╨╕ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А╨░ ╨▒╤Г╨┤╨╡╤В ╨╛╤В╤А╨░╨╢╨░╤В╤М ╨╕╨╡╤А╨░╤А╤Е╨╕╤О ╨╛╤И╨╕╨▒╨╛╨║. ╨Я╨╛╨┤╤А╨╛╨▒╨╜╨╡╨╡ ╤Б╨╝. https://aka.ms/cpp/structured-output.
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6qquw\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_73074.dir\\Debug\\cmTC_73074.tlog\\".
+        InitializeBuildStatus:
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_73074.dir\\Debug\\cmTC_73074.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_73074.dir\\Debug\\cmTC_73074.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_73074.dir\\Debug\\\\" /Fd"cmTC_73074.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          ╨Ю╨┐╤В╨╕╨╝╨╕╨╖╨╕╤А╤Г╤О╤Й╨╕╨╣ ╨║╨╛╨╝╨┐╨╕╨╗╤П╤В╨╛╤А Microsoft (R) C/C++ ╨▓╨╡╤А╤Б╨╕╨╕ 19.50.35725 ╨┤╨╗╤П x64
+          (C) ╨Ъ╨╛╤А╨┐╨╛╤А╨░╤Ж╨╕╤П ╨Ь╨░╨╣╨║╤А╨╛╤Б╨╛╤Д╤В (Microsoft Corporation).  ╨Т╤Б╨╡ ╨┐╤А╨░╨▓╨░ ╨╖╨░╤Й╨╕╤Й╨╡╨╜╤Л.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_73074.dir\\Debug\\\\" /Fd"cmTC_73074.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Professional\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6qquw\\Debug\\cmTC_73074.exe" /INCREMENTAL /ILK:"cmTC_73074.dir\\Debug\\cmTC_73074.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-e6qquw/Debug/cmTC_73074.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/CMakeScratch/TryCompile-e6qquw/Debug/cmTC_73074.lib" /MACHINE:X64 cmTC_73074.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_73074.vcxproj -> C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6qquw\\Debug\\cmTC_73074.exe
+        FinalizeBuildStatus:
+          ╨д╨░╨╣╨╗ "cmTC_73074.dir\\Debug\\cmTC_73074.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_73074.dir\\Debug\\cmTC_73074.tlog\\cmTC_73074.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\neval\\OneDrive\\Desktop\\algorithms_and_structures\\lab_algos3\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e6qquw\\cmTC_73074.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        
+        ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
+            ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
+            ╨Ю╤И╨╕╨▒╨╛╨║: 0
+        
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.93
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files/Microsoft Visual Studio/18/Professional/VC/Tools/MSVC/14.50.35717/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.50.35725.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...
