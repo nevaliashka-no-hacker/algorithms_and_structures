@@ -60,6 +60,22 @@ int* sort_an_array(int* arr, int n) // heap_sort
 O(m + n)?
 */
 
+void merge_sorted_array(int* nums1, int m, int* nums2, int n)
+{
+    // 1 способ
+    // складываем все в один список
+    for (int i = m; i < m + n; i++)
+    {
+        nums1[i] = nums2[i - m];
+    }
+
+    // и сортируем его
+
+
+    // 2 способ
+    // вставить сразу в нужное место через сортировку вставками
+}
+
 
 /*
 977. Squares of a Sorted Array
@@ -161,6 +177,8 @@ O(n log n)?
 
 int main() 
 {
+    // 1
+    /*
     int n = 10;
     int* arr = new int[n];
     for (int i = 0; i < n; i++)
@@ -170,9 +188,12 @@ int main()
     for (int i = 0; i < n; i++)
     {
         std::cout << arr[i] << ' ';
-    }
-    
-
+    } 
     delete[] arr;
+    */
+
+
+
+   
     return 0;
 }
