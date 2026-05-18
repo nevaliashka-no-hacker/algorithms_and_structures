@@ -1,5 +1,7 @@
 #include <iostream>
 
+void print_array(int* arr, int n);
+
 /*
 912. Sort an Array
 
@@ -60,20 +62,66 @@ int* sort_an_array(int* arr, int n) // heap_sort
 O(m + n)?
 */
 
-void merge_sorted_array(int* nums1, int m, int* nums2, int n)
+/* //не получилось реализовать
+int partition(int* arr, int low, int high)
+{
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++)
+    {
+        if (arr[j] <= pivot)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return i + 1;
+}
+
+void quick_sort_inplace(int* arr, int low, int high)
+{
+    if (low < high) 
+    {
+        int pi = partition(arr, low, high);
+        quick_sort_inplace(arr, low, pi - 1);
+        quick_sort_inplace(arr, pi + 1, high);
+    }
+}
+
+void merge_sorted_array1(int* nums1, int m, int* nums2, int n)
 {
     // 1 способ
-    // складываем все в один список
-    for (int i = m; i < m + n; i++)
+    // складываем все в один список O(n + n log n)
+    for (int i = 0; i < n; i++)
     {
-        nums1[i] = nums2[i - m];
+        nums1[m + i] = nums2[i];
     }
-
     // и сортируем его
+    quick_sort_inplace(nums1, 0, m);
+}
+*/
 
-
+void merge_sorted_array2(int* nums1, int m, int* nums2, int n)
+{
     // 2 способ
-    // вставить сразу в нужное место через сортировку вставками
+    // вставить сразу в нужное место через сортировку вставками O(n^3)
+    int z;
+    int key;
+    for (int j = 0; j < n; j++)
+    {
+        for (int i = 0; i < m; i++)
+        {
+            key = nums1[i];
+            z = i - 1;
+            while (z >= 0 && nums1[z] > key)
+            {
+                nums1[z + 1] = nums2[j];
+                z -= 1;
+            }
+            nums1[z + 1] = key;
+        }
+    }
 }
 
 
@@ -84,6 +132,55 @@ void merge_sorted_array(int* nums1, int m, int* nums2, int n)
 Входные данные: nums = [-4,-1,0,3,10]
 Выходные данные: [0,1,9,16,100]
 O(n)?
+*/
+
+void square(int* arr, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = arr[i] * arr[i];
+    }
+}
+
+int* square_of_a_sorted_array1(int* arr, int n)
+{
+    // 1 способ: в квадрат и сортируем O(n + n log n)
+    square(arr, n);
+
+    // пирамидальная сортировка из первого задания
+    sort_an_array(arr, n);
+
+    return arr;
+}
+/*
+int* square_of_a_sorted_array2(int* arr, int n)
+{
+    // 2 способ: проход по каждому элементу, его сортировка и квадрат O(n)
+    // попытка 1
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i] * arr[i] > arr[i + 1] * arr[i + 1])
+        {
+            arr[i + 1] = arr[i + 1] * arr[i + 1];
+            swap(&arr[i], &arr[i + 1]);
+        }
+    }
+
+    // попытка 2
+    int i = n - 1;
+    while (i != 0)
+    {
+        arr[i] = arr[i] * arr[i];
+        if (arr[i] < arr[i - 1] * arr[i - 1])
+        {
+            arr[i - 1] = arr[i - 1] * arr[i - 1];
+            swap(&arr[i], &arr[i - 1]);
+        }
+        i -= 1;
+    }
+
+    return arr;
+}
 */
 
 
@@ -175,23 +272,51 @@ O(n log n)?
 Выходные данные: "210"
 */
 
+
+
+void print_array(int* arr, int n)
+{
+    for (int i = 0; i < n; i++) 
+    {
+        std::cout << arr[i] << " ";
+    }
+}
+
 int main() 
 {
+    int n = 0, m = 0;
+
     // 1
-    /*
-    int n = 10;
-    int* arr = new int[n];
-    for (int i = 0; i < n; i++)
-        std::cin >> arr[i];
+    std::cout << "Sort an Array" << std::endl;
+    n = 7;
+    int arr1[] = {10, 3, 2, 6, 1, 8, 9};
 
-    // 1 arr = sort_an_array(arr, n);
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << arr[i] << ' ';
-    } 
-    delete[] arr;
-    */
+    print_array(sort_an_array(arr1, n), n);
 
+    std::cout << std::endl;
+
+    // 2
+    std::cout << "Merge Sorted Array" << std::endl;
+    n = 3;
+    m = 6;
+    int arr21[] = {1, 2, 3, 0, 0, 0};
+    int arr22[] = {2, 5, 6};
+    //2.1
+    // merge_sorted_array1(arr21, m, arr22, n);
+    //2.2
+    merge_sorted_array2(arr21, m, arr22, n);
+    print_array(arr1, m);
+
+    // 3
+    std::cout << "Squares of a Sorted Array" << std::endl;
+
+    n = 5;
+    int arr3[] = {-4, -1, 0, 3, 10};
+
+    print_array(square_of_a_sorted_array1(arr3, n), n);
+    // print_array(square_of_a_sorted_array2(arr3, n), n);
+
+    std::cout << std::endl;
 
 
    
