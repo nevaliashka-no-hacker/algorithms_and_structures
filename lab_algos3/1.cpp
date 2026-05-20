@@ -193,6 +193,17 @@ int* square_of_a_sorted_array2(int* arr, int n)
 Пояснение: Поскольку интервалы [1,3] и [2,6] пересекаются, объединим их в [1,6].
 */
 
+void merge_intervals(int** arr, int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i][1] > arr[i + 1][0] || arr[i][1] < arr[i + 1][1])
+        {
+            
+        }
+    }
+}
+
 
 /*
 435. Non-overlapping Intervals
@@ -318,7 +329,23 @@ int main()
 
     std::cout << std::endl;
 
+    // 4
+    std::cout << "Merge Intervals" << std::endl;
 
-   
+    n = 4;
+    int intervals[][] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+
+    merge_intervals(intervals, n);
+    std::cout << '{';
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << "{ ";
+        print_array(intervals[i], 2);
+        std::cout << "} ";
+    }
+    std::cout << '}';
+
+    std::cout << std::endl;
+
     return 0;
 }
