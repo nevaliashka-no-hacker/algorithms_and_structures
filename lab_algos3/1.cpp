@@ -1,6 +1,8 @@
 #include <iostream>
+#include <vector>
 
 void print_array(int* arr, int n);
+void clear_matrix(int** arr, int n);
 
 /*
 912. Sort an Array
@@ -193,15 +195,37 @@ int* square_of_a_sorted_array2(int* arr, int n)
 Пояснение: Поскольку интервалы [1,3] и [2,6] пересекаются, объединим их в [1,6].
 */
 
-void merge_intervals(int** arr, int n)
+int max(int a, int b)
 {
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (arr[i][1] > arr[i + 1][0] || arr[i][1] < arr[i + 1][1])
-        {
-            
-        }
+    if (a > b)
+        return a;
+    return b;
+}
+
+int** merge_intervals(int** arr, int n)
+{
+    // надо прописать быструю сортировку
+    int j = 0;
+    int** res = new int*[n];
+    for (int i = 0; i < n; i++) {
+        res[i] = new int[2];
     }
+
+    res[0][0] = arr[0][0];
+    res[0][1] = arr[0][1];
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i][0] <= res[j][1])
+        {
+            res[j][1] = max(res[j][1], arr[i][1]);
+            j++;
+        }
+        j++;
+        res[j][0] = arr[j][0];
+        res[j][1] = arr[j][1];
+    }
+
+    return res;
 }
 
 
@@ -293,6 +317,15 @@ void print_array(int* arr, int n)
     }
 }
 
+void clear_matrix(int** arr, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        delete[] arr[i];
+    }
+    delete[] arr;
+}
+
 int main() 
 {
     int n = 0, m = 0;
@@ -333,17 +366,16 @@ int main()
     std::cout << "Merge Intervals" << std::endl;
 
     n = 4;
-    int intervals[][] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    int intervals[][2] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
 
-    merge_intervals(intervals, n);
+    int** result = merge_intervals(intervals, n);
     std::cout << '{';
     for (int i = 0; i < n; i++)
     {
-        std::cout << "{ ";
-        print_array(intervals[i], 2);
-        std::cout << "} ";
+        std::cout << "{ " << result[i][0] << ", " << result[i][1] << "} ";
     }
     std::cout << '}';
+    clear_matrix(result, n);
 
     std::cout << std::endl;
 
