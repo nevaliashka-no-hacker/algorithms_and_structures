@@ -1,3 +1,0 @@
-C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/go.dir
-C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/neval/OneDrive/Desktop/algorithms_and_structures/lab_algos3/build/CMakeFiles/ZERO_CHECK.dir

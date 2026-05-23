@@ -1,8 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <set>
 
 void print_array(int* arr, int n);
 void clear_matrix(int** arr, int n);
+
+void swap_intervals(int a[2], int b[2]);
+
 
 /*
 912. Sort an Array
@@ -64,8 +68,7 @@ int* sort_an_array(int* arr, int n) // heap_sort
 O(m + n)?
 */
 
-/* //не получилось реализовать
-int partition(int* arr, int low, int high)
+int partition(int arr[], int low, int high)
 {
     int pivot = arr[high];
     int i = low - 1;
@@ -81,7 +84,7 @@ int partition(int* arr, int low, int high)
     return i + 1;
 }
 
-void quick_sort_inplace(int* arr, int low, int high)
+void quick_sort_inplace(int arr[], int low, int high)
 {
     if (low < high) 
     {
@@ -91,39 +94,15 @@ void quick_sort_inplace(int* arr, int low, int high)
     }
 }
 
-void merge_sorted_array1(int* nums1, int m, int* nums2, int n)
+void merge_sorted_array1(int nums1[], int m, int nums2[], int n)
 {
-    // 1 способ
     // складываем все в один список O(n + n log n)
     for (int i = 0; i < n; i++)
     {
         nums1[m + i] = nums2[i];
     }
     // и сортируем его
-    quick_sort_inplace(nums1, 0, m);
-}
-*/
-
-void merge_sorted_array2(int* nums1, int m, int* nums2, int n)
-{
-    // 2 способ
-    // вставить сразу в нужное место через сортировку вставками O(n^3)
-    int z;
-    int key;
-    for (int j = 0; j < n; j++)
-    {
-        for (int i = 0; i < m; i++)
-        {
-            key = nums1[i];
-            z = i - 1;
-            while (z >= 0 && nums1[z] > key)
-            {
-                nums1[z + 1] = nums2[j];
-                z -= 1;
-            }
-            nums1[z + 1] = key;
-        }
-    }
+    quick_sort_inplace(nums1, 0, m + n - 1);
 }
 
 
@@ -202,9 +181,35 @@ int max(int a, int b)
     return b;
 }
 
-int** merge_intervals(int** arr, int n)
+void swap_intervals(int a[2], int b[2]) {
+    int temp[2] = {a[0], a[1]};
+    a[0] = b[0];
+    a[1] = b[1];
+    b[0] = temp[0];
+    b[1] = temp[1];
+}
+
+void quick_sort(int a[][2], int lo, int hi)
 {
-    // надо прописать быструю сортировку
+    if (lo >= hi) return;
+    int pivot = a[lo + (hi - lo) / 2][1]; // опорный — средний элемент
+    int i = lo, j = hi;
+    while (i <= j) {
+        while (a[i][1] < pivot) i++;
+        while (a[j][1] > pivot) j--;
+        if (i <= j) {
+            swap_intervals(a[i], a[j]);
+            i++; j--;
+        }
+    }
+    quick_sort(a, lo, j);
+    quick_sort(a, i, hi);
+}
+
+int** merge_intervals(int arr[][2], int n, int* res_len)
+{
+    quick_sort(arr, 0, n - 1);
+
     int j = 0;
     int** res = new int*[n];
     for (int i = 0; i < n; i++) {
@@ -218,26 +223,17 @@ int** merge_intervals(int** arr, int n)
         if (arr[i][0] <= res[j][1])
         {
             res[j][1] = max(res[j][1], arr[i][1]);
-            j++;
         }
+        else {
         j++;
-        res[j][0] = arr[j][0];
-        res[j][1] = arr[j][1];
+        res[j][0] = arr[i][0];
+        res[j][1] = arr[i][1];
+        }
     }
 
+    *res_len = j + 1;
     return res;
 }
-
-
-/*
-435. Non-overlapping Intervals
-
-Дан массив интервалов. Максимальное кол-во интервалов, которые нужно удалить, 
-чтобы не было пересечений. [1, 2] [2, 3] пересечений нет.
-Входные данные: intervals = [[1,2],[2,3],[3,4],[1,3]]
-Выходные данные: 1
-Пояснение: [1,3] можно удалить, а остальные интервалы не пересекаются.
-*/
 
 
 /*
@@ -253,24 +249,40 @@ int** merge_intervals(int** arr, int n)
 - Выстрелите в точку с координатой x = 11, чтобы лопнуть шарики [10,16] и [7,12].
 */
 
+void qs_rec(int a[][2], int lo, int hi)
+{
+    if (lo >= hi) return;
+    int pivot = a[lo + (hi - lo) / 2][1]; // опорный — средний элемент
+    int i = lo, j = hi;
+    while (i <= j) {
+        while (a[i][1] < pivot) i++;
+        while (a[j][1] > pivot) j--;
+        if (i <= j) {
+            swap_intervals(a[i], a[j]);
+            i++; j--;
+        }
+    }
+    qs_rec(a, lo, j);
+    qs_rec(a, i, hi);
+}
 
-/*
-347. Top K Frequent Elements
+int min_num_of_arrows_to_burst_balloons(int balloons[][2], int n) {
+    qs_rec(balloons, 0, n - 1);
 
-Дан массив и число (nums k). Вернуть ТОП k элементов, встречающихся чаще.
-Входные данные: nums = [1,1,1,2,2,3], k = 2
-Выходные данные: [1,2]
-O(n log n)?
-*/
-
-
-/*
-451. Sort Characters By Frequency
-
-Дана строка. Отсортировать ее по убыванию частоты символов.
-Входные данные: s = "tree"
-Выходные данные: "eert"
-*/
+    int i = 0, res = 0;
+    int temp;
+    while (i < n) {
+        temp = balloons[i][1];
+        i++;
+        if (balloons[i][0] <= temp && temp <= balloons[i][1]) {
+            i++;
+            res++;
+        }
+        
+    }
+    
+    return res;
+}
 
 
 /*
@@ -280,34 +292,35 @@ O(n log n)?
 Отсортировать по возрастанию (In-place algorithm).
 */
 
+int partition_colors(int* arr, int low, int high)
+{
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++)
+    {
+        if (arr[j] <= pivot)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return i + 1;
+}
 
-/*
-148. Sort List
+void quick_sort_inplace_colors(int* arr, int low, int high)
+{
+    if (low < high) 
+    {
+        int pi = partition_colors(arr, low, high);
+        quick_sort_inplace_colors(arr, low, pi - 1);
+        quick_sort_inplace_colors(arr, pi + 1, high);
+    }
+}
 
-Отсортировать связный список по возрастанию.
-Входные данные: head = [4,2,1,3]
-Выходные данные: [1,2,3,4]
-*/
-
-/*
-406. Queue Reconstruction by Height
-
-Дан массив людей. Человек: рост, кол-во людей x>=рост впереди стоящих.
-Выстроить по логике.
-Входные данные: people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
-Выходные данные: [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
-*/
-
-
-/*
-179. Largest Number
-
-Дан список неотрицательных чисел. Переставить, чтобы получилось неаибольшее число.
-Входные данные: nums = [10,2]
-Выходные данные: "210"
-*/
-
-
+void sort_colors(int* arr, int n) {
+    quick_sort_inplace_colors(arr, 0, n - 1);
+}
 
 void print_array(int* arr, int n)
 {
@@ -342,14 +355,13 @@ int main()
     // 2
     std::cout << "Merge Sorted Array" << std::endl;
     n = 3;
-    m = 6;
+    m = 3;
     int arr21[] = {1, 2, 3, 0, 0, 0};
     int arr22[] = {2, 5, 6};
-    //2.1
-    // merge_sorted_array1(arr21, m, arr22, n);
-    //2.2
-    merge_sorted_array2(arr21, m, arr22, n);
-    print_array(arr1, m);
+    merge_sorted_array1(arr21, m, arr22, n);
+    print_array(arr21, m + n);
+
+    std::cout << std::endl;
 
     // 3
     std::cout << "Squares of a Sorted Array" << std::endl;
@@ -366,16 +378,41 @@ int main()
     std::cout << "Merge Intervals" << std::endl;
 
     n = 4;
+    int res_len;
     int intervals[][2] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
 
-    int** result = merge_intervals(intervals, n);
+    int** result = merge_intervals(intervals, n, &res_len);
     std::cout << '{';
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < res_len; i++)
     {
-        std::cout << "{ " << result[i][0] << ", " << result[i][1] << "} ";
+        std::cout << " { " << result[i][0] << ", " << result[i][1];
+        if (i == res_len - 1) {
+            std::cout << " } ";
+        }
+        else {
+            std::cout << " },";
+        }
     }
     std::cout << '}';
-    clear_matrix(result, n);
+    clear_matrix(result, res_len);
+
+    std::cout << std::endl;
+
+    //5
+    std::cout << "Minimum Number of Arrows to Burst Balloons" << std::endl;
+
+    n = 4;
+    int balloons[][2] = {{10, 16}, {2, 8}, {1, 6}, {7, 12}};
+    std::cout << min_num_of_arrows_to_burst_balloons(balloons, n) << std::endl;
+
+    // 6
+    std::cout << "Sort Colors" << std::endl;
+
+    n = 6;
+    int arr6[] = {1, 0, 2, 2, 0, 1};
+    sort_colors(arr6, n);
+
+    print_array(arr6, n);
 
     std::cout << std::endl;
 
