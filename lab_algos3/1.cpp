@@ -113,6 +113,7 @@ int* square_of_a_sorted_array1(int* arr, int n) {
 
     return arr;
 }
+
 /*
 int* square_of_a_sorted_array2(int* arr, int n)
 {
@@ -289,13 +290,6 @@ void print_array(int* arr, int n) {
     for (int i = 0; i < n; i++) {
         std::cout << arr[i] << " ";
     }
-}
-
-void clear_matrix(int** arr, int n) {
-    for (int i = 0; i < n; i++) {
-        delete[] arr[i];
-    }
-    delete[] arr;
 }
 
 int main() {
