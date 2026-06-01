@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 #include <unordered_map>
+
+#include "task1.hpp"
 
 bool isAnagram(std::string s, std::string t) {
     if (s.size() != t.size()) {
@@ -23,12 +24,4 @@ bool isAnagram(std::string s, std::string t) {
         }
     }
     return true;
-}
-
-int main() {
-    std::string s = "anagram";
-    std::string t = "nagaram";
-    std::cout << isAnagram(s, t);
-    // добавить тесты
-    return 0;
 }
