@@ -11,19 +11,50 @@ class TreeNode():
         self.right = right
 
 def inTree(values):
-    root = None
-    for v in values:
-        root = insert(root, v)
+    if not values or values[0] is None:
+        return None
+    
+    root = TreeNode(values[0])
+    queue = deque([root])
+    i = 1
+    
+    while queue and i < len(values):
+        node = queue.popleft()
+        
+        # Левый ребенок
+        if i < len(values) and values[i] is not None:
+            node.left = TreeNode(values[i])
+            queue.append(node.left)
+        i += 1
+        
+        # Правый ребенок
+        if i < len(values) and values[i] is not None:
+            node.right = TreeNode(values[i])
+            queue.append(node.right)
+        i += 1
+    
     return root
 
-def insert(root, val):
-    if root is None:
-        return TreeNode(val)
-    if val < root.val:
-        root.left = insert(root.left, val)
-    elif val > root.val:
-        root.right = insert(root.right, val)
-    return root
+def treeToList(root):
+    if not root:
+        return []
+    
+    result = []
+    queue = deque([root])
+    
+    while queue:
+        node = queue.popleft()
+        if node:
+            result.append(node.val)
+            queue.append(node.left)
+            queue.append(node.right)
+        else:
+            result.append(None)
+    
+    while result and result[-1] is None:
+        result.pop()
+    
+    return result
 
 #100. Same Tree
 def isSameTree(p, q):
@@ -168,7 +199,8 @@ def main():
     print("Пример 226. Invert Binary Tree")
     root = [2,1,3]
     rootTree = inTree(root)
-    print(root, ":", invertTree(rootTree))
+    result = treeToList(invertTree(rootTree))
+    print(root, ":", result)
 
     print()
 
