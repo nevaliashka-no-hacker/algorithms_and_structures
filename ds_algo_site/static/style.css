@@ -1,0 +1,73 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.jumbotron {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.jumbotron .btn {
+    margin-top: 10px;
+}
+
+h1, h2, h3 {
+    color: #333;
+    font-weight: 600;
+}
+
+h2.border-bottom {
+    padding-bottom: 10px;
+    margin-top: 30px !important;
+}
+
+code {
+    background-color: #f1f3f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.list-group-item {
+    transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: #f1f3f4;
+}
+
+/* Улучшенная навигация */
+.navbar .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Отступ для якорей */
+h2[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Адаптивность таблиц */
+.table-responsive {
+    overflow-x: auto;
+}

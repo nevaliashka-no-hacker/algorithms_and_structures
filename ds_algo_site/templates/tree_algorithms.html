@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы деревьев — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 Data Structures</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trees">🌳 Теория</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/tree-algorithms">⚙️ Алгоритмы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hashing">#️⃣ Хеширование</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">⚙️ Все алгоритмы деревьев</h1>
+        
+        <div class="alert alert-warning">
+            🎯 <strong>Для собеседований:</strong> Звёздочкой ⭐ отмечены самые спрашиваемые алгоритмы. Учите Big O!
+        </div>
+
+        <!-- НАВИГАЦИЯ ПО РАЗДЕЛАМ -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5>📑 Содержание:</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#traversals" class="btn btn-outline-success btn-sm w-100 mb-2">Обходы (4 алгоритма) ⭐</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#search" class="btn btn-outline-success btn-sm w-100 mb-2">Поиск (3 алгоритма) ⭐</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#modification" class="btn btn-outline-success btn-sm w-100 mb-2">Модификация (3 алгоритма) ⭐</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#properties" class="btn btn-outline-success btn-sm w-100 mb-2">Свойства (4 алгоритма)</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#construction" class="btn btn-outline-success btn-sm w-100 mb-2">Построение (3 алгоритма)</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#balancing" class="btn btn-outline-success btn-sm w-100 mb-2">Балансировка (2 алгоритма)</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#advanced" class="btn btn-outline-success btn-sm w-100 mb-2">Продвинутые (4 алгоритма)</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#special" class="btn btn-outline-success btn-sm w-100 mb-2">Специальные деревья (4 алгоритма)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ ОБХОДЫ ============ -->
+        <h2 id="traversals" class="border-bottom pb-2">📌 Обходы дерева (Tree Traversals)</h2>
+        
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>1. In-order обход (Левый → Корень → Правый) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Рекурсивный обход: сначала левое поддерево, затем корень, затем правое. Даёт отсортированный порядок в BST.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h) стек вызовов, h — высота</td></tr>
+                </table>
+                <p><strong>Применение:</strong> Получение отсортированного массива из BST, валидация BST.</p>
+                <p><strong>Языки:</strong> Python — <code>рекурсия / yield from</code> | C — <code>void inorder(Node*)</code> | C++ — <code>рекурсия или стек</code></p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>2. Pre-order обход (Корень → Левый → Правый) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Сначала корень, затем левое, затем правое поддерево. Используется для копирования дерева.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Применение:</strong> Сериализация дерева, префиксная запись выражений, клонирование.</p>
+                <p><strong>Языки:</strong> Python — <code>список + рекурсия</code> | C — <code>printf в начале</code> | C++ — <code>лямбда-функция</code></p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>3. Post-order обход (Левый → Правый → Корень) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Сначала оба поддерева, потом корень. Используется для удаления дерева (сначала дети, потом родитель).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Применение:</strong> Удаление дерева, вычисление размера папки, постфиксная запись выражений.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>4. Level-order обход / BFS (По уровням) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Обход по уровням с использованием очереди (FIFO).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(w), w — максимальная ширина уровня</td></tr>
+                </table>
+                <p><strong>Применение:</strong> Поиск кратчайшего пути в невзвешенном графе, сериализация, печать по уровням.</p>
+                <p><strong>Языки:</strong> Python — <code>collections.deque</code> | C — <code>очередь на связном списке</code> | C++ — <code>std::queue</code></p>
+            </div>
+        </div>
+
+        <!-- ============ ПОИСК ============ -->
+        <h2 id="search" class="border-bottom pb-2 mt-5">📌 Поиск в деревьях</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>5. Поиск элемента в BST ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Использует свойство BST (левый < корень < правый). На каждом шаге отсекается половина дерева.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(h), в среднем O(log n), худший O(n)</td><th>Сложность памяти</th><td>O(1) итеративно, O(h) рекурсивно</td></tr>
+                </table>
+                <p><strong>Совет для собеседования:</strong> Покажите и итеративную, и рекурсивную версию.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>6. Поиск минимума / максимума в BST</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Минимум — самый левый узел, максимум — самый правый.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(h)</td><th>Сложность памяти</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>7. Поиск LCA — наименьшего общего предка ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Поиск самого глубокого узла, который является предком двух заданных узлов.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n) для обычного дерева, O(h) для BST</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Часто на собеседованиях!</strong> Для BST — используйте свойство порядка, для обычного — рекурсивный поиск.</p>
+            </div>
+        </div>
+
+        <!-- ============ МОДИФИКАЦИЯ ============ -->
+        <h2 id="modification" class="border-bottom pb-2 mt-5">📌 Модификация дерева</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>8. Вставка в BST ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Поиск места + добавление листа. Не нарушает свойства BST.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(h)</td><th>Сложность памяти</th><td>O(1) итеративно, O(h) рекурсивно</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>9. Удаление узла из BST ⭐⭐ (самый сложный базовый)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Три случая: 1) лист — просто удалить, 2) один ребёнок — заменить на ребёнка, 3) два ребёнка — найти преемника (мин в правом) и заменить.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(h)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Обязательно знать на собеседовании!</strong> Случай с двумя детьми — самый важный.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>10. Зеркальное отражение (Invert Binary Tree) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Поменять местами левое и правое поддерево для каждого узла. Знаменитый вопрос (тот самый из Twitter).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ СВОЙСТВА ============ -->
+        <h2 id="properties" class="border-bottom pb-2 mt-5">📌 Свойства дерева</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-secondary text-white"><strong>11. Вычисление высоты (глубины) дерева</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Рекурсивно: <code>1 + max(height(left), height(right))</code>.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-secondary text-white"><strong>12. Проверка сбалансированности</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Проверить, что для каждого узла <code>|height(left) - height(right)| ≤ 1</code>.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Совет:</strong> Возвращайте -1 как сигнал несбалансированности, чтобы избежать двойного обхода.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-secondary text-white"><strong>13. Подсчёт количества узлов</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> <code>1 + count(left) + count(right)</code>, для полного дерева можно через формулу 2^h - 1.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n) обычное, O(log n * log n) для полного</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-secondary text-white"><strong>14. Проверка, является ли дерево BST</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Проверить, что каждый узел лежит в допустимом диапазоне (min, max).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Хитрость:</strong> Используйте in-order обход — значения должны строго возрастать.</p>
+            </div>
+        </div>
+
+        <!-- ============ ПОСТРОЕНИЕ ============ -->
+        <h2 id="construction" class="border-bottom pb-2 mt-5">📌 Построение деревьев</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>15. Построение BST из отсортированного массива</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Рекурсивно берём середину как корень, левую половину — левое поддерево, правую — правое. Строит сбалансированное BST.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(log n)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>16. Построение дерева из Pre-order и In-order обходов</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Pre-order даёт корень, In-order показывает, какие узлы слева и справа.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(n) для хеш-таблицы индексов</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>17. Построение выражения из постфиксной записи</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Используется стек: операнды в стек, при встрече оператора создаём узел с двумя операндами.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(n)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ БАЛАНСИРОВКА ============ -->
+        <h2 id="balancing" class="border-bottom pb-2 mt-5">📌 Балансировка</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>18. Повороты AVL-дерева (LL, RR, LR, RL)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Четыре типа вращений для восстановления баланса после вставки/удаления.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(1) на один поворот</td><th>Сложность памяти</th><td>O(1)</td></tr>
+                </table>
+                <p><strong>Типы:</strong> LL — правый поворот, RR — левый поворот, LR — левый+правый, RL — правый+левый.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>19. Балансировка Красно-чёрного дерева (перекраска + повороты)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> После вставки/удаления применяются правила: красный узел не может иметь красного родителя, все пути имеют одинаковое число чёрных узлов.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(log n) амортизированное</td><th>Сложность памяти</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ ПРОДВИНУТЫЕ ============ -->
+        <h2 id="advanced" class="border-bottom pb-2 mt-5">📌 Продвинутые алгоритмы</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>20. Сериализация и десериализация бинарного дерева ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Преобразование дерева в строку и обратно. Обычно используют pre-order с маркерами для null.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(n)</td></tr>
+                </table>
+                <p><strong>Часто на собеседованиях!</strong> Используйте любой обход, но с маркерами для пустых узлов.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>21. Morris Traversal (обход без памяти) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> In-order обход с O(1) дополнительной памяти путём временного изменения указателей дерева (threaded binary tree).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(1) — уникально!</td></tr>
+                </table>
+                <p><strong>Козырь на собеседовании!</strong> Покажите, что знаете способ обхода без рекурсии и без стека.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>22. Диаметр дерева</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Длина самого длинного пути между двумя узлами (не обязательно через корень).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+                <p><strong>Формула:</strong> <code>diameter = max(left_height + right_height, left_diameter, right_diameter)</code></p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>23. Максимальная сумма пути</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Найти путь с максимальной суммой значений узлов. Путь может начинаться и заканчиваться в любом узле.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(h)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ СПЕЦИАЛЬНЫЕ ДЕРЕВЬЯ ============ -->
+        <h2 id="special" class="border-bottom pb-2 mt-5">📌 Алгоритмы для специальных деревьев</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>24. Вставка в Trie (префиксное дерево)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Постепенное создание узлов для каждого символа строки. Последний узел помечается как конец слова.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(k), k — длина слова</td><th>Сложность памяти</th><td>O(k) на слово</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>25. Поиск в Trie (автодополнение)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Поиск префикса, затем сбор всех слов из поддерева. Основа поисковых подсказок.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(p + m), p — длина префикса, m — число совпадений</td><th>Сложность памяти</th><td>O(1) + вывод</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>26. Heapify (построение кучи из массива)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Преобразование массива в бинарную кучу (min/max) за O(n) просеиванием снизу вверх.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n)</td><th>Сложность памяти</th><td>O(1) in-place</td></tr>
+                </table>
+                <p><strong>Важно:</strong> Не O(n log n), а именно O(n) — доказывается математически!</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>27. Код Хаффмана (построение дерева)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Построение оптимального префиксного дерева для сжатия данных на основе частот символов с использованием min-heap.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность времени</th><td>O(n log n)</td><th>Сложность памяти</th><td>O(n)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ИТОГОВАЯ ТАБЛИЦА -->
+        <div class="card mt-5 mb-4">
+            <div class="card-header bg-success text-white"><h3>📊 Сводная таблица всех алгоритмов деревьев</h3></div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr><th>#</th><th>Алгоритм</th><th>Время</th><th>Память</th><th>Частота на собесах</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>In-order обход</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>2</td><td>Pre-order обход</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>3</td><td>Post-order обход</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>4</td><td>Level-order (BFS)</td><td>O(n)</td><td>O(w)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>5</td><td>Поиск в BST</td><td>O(h)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>6</td><td>Мин/Макс в BST</td><td>O(h)</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>7</td><td>LCA</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>8</td><td>Вставка в BST</td><td>O(h)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>9</td><td>Удаление из BST</td><td>O(h)</td><td>O(h)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>10</td><td>Invert дерево</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>11</td><td>Высота дерева</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>12</td><td>Сбалансированность</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>13</td><td>Количество узлов</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>14</td><td>Проверка BST</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>15</td><td>Массив → BST</td><td>O(n)</td><td>O(log n)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>16</td><td>Pre+In → Дерево</td><td>O(n)</td><td>O(n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>17</td><td>Выражение → Дерево</td><td>O(n)</td><td>O(n)</td><td>⭐⭐</td></tr>
+                        <tr><td>18</td><td>AVL повороты</td><td>O(1)</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>19</td><td>Красно-чёрная балансировка</td><td>O(log n)</td><td>O(1)</td><td>⭐⭐</td></tr>
+                        <tr><td>20</td><td>Сериализация</td><td>O(n)</td><td>O(n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>21</td><td>Morris Traversal</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>22</td><td>Диаметр</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>23</td><td>Макс. сумма пути</td><td>O(n)</td><td>O(h)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>24</td><td>Trie вставка</td><td>O(k)</td><td>O(k)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>25</td><td>Trie поиск</td><td>O(p+m)</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>26</td><td>Heapify</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>27</td><td>Код Хаффмана</td><td>O(n log n)</td><td>O(n)</td><td>⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="/trees" class="btn btn-success mb-5">← Назад к теории деревьев</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы графов — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/graphs">🕸️ Теория</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/graph-algorithms">⚙️ Алгоритмы</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>⚙️ Алгоритмы графов (18)</h1>
+        <div class="alert alert-warning">🎯 Графы — 30% экзаменационных билетов. Учите BFS, DFS, Dijkstra в первую очередь!</div>
+
+        <!-- ОБХОДЫ -->
+        <h2 class="border-bottom pb-2">📌 Обходы</h2>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>1. DFS (поиск в глубину) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Рекурсивный обход: идём по первому соседу до тупика, возвращаемся (backtracking).</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(V + E)</td><th>Память</th><td>O(V) стек</td></tr></table><p>Применение: поиск циклов, компоненты связности, топологическая сортировка.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>2. BFS (поиск в ширину) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Обход по уровням с очередью.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(V + E)</td><th>Память</th><td>O(V)</td></tr></table><p>Применение: кратчайший путь в невзвешенном графе, поиск в ширину.</p></div></div>
+
+        <!-- КРАТЧАЙШИЕ ПУТИ -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Кратчайшие пути</h2>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>3. Алгоритм Дейкстры ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>От одной вершины до всех в взвешенном графе с неотрицательными весами. Приоритетная очередь.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O((V+E) log V) с heap</td><th>Память</th><td>O(V)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>4. Алгоритм Беллмана-Форда ⭐⭐⭐</strong></div><div class="card-body"><p>Работает с отрицательными весами. V-1 итераций релаксации всех рёбер. Обнаруживает отрицательные циклы.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(V * E)</td><th>Память</th><td>O(V)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>5. Алгоритм Флойда-Уоршелла ⭐⭐⭐</strong></div><div class="card-body"><p>Все пары кратчайших путей. Динамическое программирование.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(V³)</td><th>Память</th><td>O(V²)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>6. A* (A-star) ⭐⭐</strong></div><div class="card-body"><p>Дейкстра + эвристика (расстояние до цели). Поиск пути в играх, навигация.</p></div></div>
+
+        <!-- MST -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Минимальное остовное дерево (MST)</h2>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>7. Алгоритм Крускала ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Сортируем рёбра по весу, добавляем если не создаёт цикл (DSU).</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(E log E)</td><th>Память</th><td>O(V)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>8. Алгоритм Прима ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Начинаем с одной вершины, добавляем ближайшую не в дереве. Приоритетная очередь.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O((V+E) log V)</td><th>Память</th><td>O(V)</td></tr></table></div></div>
+
+        <!-- ТОПОЛОГИЧЕСКАЯ СОРТИРОВКА -->
+        <h2 class="border-bottom pb-2 mt-5">📌 DAG и топологическая сортировка</h2>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>9. Алгоритм Кана (BFS) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Считаем входящие степени, добавляем вершины с 0 в очередь.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(V + E)</td><th>Память</th><td>O(V)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>10. Топологическая сортировка через DFS</strong></div><div class="card-body"><p>DFS + стек. Добавляем вершину в стек после обработки всех потомков.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>11. Кратчайший путь в DAG ⭐⭐⭐</strong></div><div class="card-body"><p>Топологическая сортировка + релаксация рёбер в этом порядке. O(V+E).</p></div></div>
+
+        <!-- СВЯЗНОСТЬ И ЦИКЛЫ -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Связность, циклы, компоненты</h2>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>12. Компоненты связности (DFS/BFS/Union-Find) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Запускаем DFS/BFS из непосещённой вершины — все достигнутые в одной компоненте.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>13. Поиск цикла (DFS с цветами) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Три цвета: белый (не посещён), серый (в стеке), чёрный (обработан). Если встретили серый → цикл.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>14. Двудольность графа (BFS с раскраской) ⭐⭐⭐</strong></div><div class="card-body"><p>BFS, красим соседей в противоположный цвет. Если конфликт → не двудольный.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>15. Мосты и точки сочленения (Тарьян) ⭐⭐⭐</strong></div><div class="card-body"><p>DFS с временами входа и low-link значениями. Мост — ребро, удаление которого разбивает граф.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-dark text-white"><strong>16. Сильные компоненты связности (Косарайю / Тарьян) ⭐⭐⭐</strong></div><div class="card-body"><p>В ориентированном графе: компонента, где из любой вершины можно дойти до любой.</p></div></div>
+
+        <!-- СТРУКТУРЫ ДАННЫХ -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Структуры данных для графов</h2>
+        <div class="card mb-3"><div class="card-header bg-success text-white"><strong>17. DSU / Union-Find (Система непересекающихся множеств) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Две операции: find (сжатие пути) и union (по рангу/размеру). Почти O(1) амортизированное.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(α(n)) — обратная функция Аккермана</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header bg-success text-white"><strong>18. Алгоритм иерархической кластеризации</strong></div><div class="card-body"><p>Построение MST → удаление k-1 самых дорогих рёбер → k кластеров.</p></div></div>
+
+        <!-- ИТОГ -->
+        <div class="card mt-5 mb-4"><div class="card-header bg-dark text-white"><h3>📊 Сводная таблица</h3></div><div class="card-body table-responsive"><table class="table table-striped table-hover"><thead><tr><th>#</th><th>Алгоритм</th><th>Время</th><th>Собесы</th></tr></thead><tbody><tr><td>1</td><td>DFS</td><td>O(V+E)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>2</td><td>BFS</td><td>O(V+E)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>3</td><td>Дейкстра</td><td>O((V+E)log V)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>4</td><td>Беллман-Форд</td><td>O(VE)</td><td>⭐⭐⭐</td></tr><tr><td>5</td><td>Флойд-Уоршелл</td><td>O(V³)</td><td>⭐⭐⭐</td></tr><tr><td>6</td><td>A*</td><td>O(E)</td><td>⭐⭐</td></tr><tr><td>7</td><td>Крускал</td><td>O(E log E)</td><td>⭐⭐⭐⭐</td></tr><tr><td>8</td><td>Прим</td><td>O((V+E)log V)</td><td>⭐⭐⭐⭐</td></tr><tr><td>9</td><td>Топсорт Кана</td><td>O(V+E)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>10</td><td>Топсорт DFS</td><td>O(V+E)</td><td>⭐⭐⭐⭐</td></tr><tr><td>11</td><td>Путь в DAG</td><td>O(V+E)</td><td>⭐⭐⭐</td></tr><tr><td>12</td><td>Компоненты связности</td><td>O(V+E)</td><td>⭐⭐⭐⭐</td></tr><tr><td>13</td><td>Поиск цикла</td><td>O(V+E)</td><td>⭐⭐⭐⭐</td></tr><tr><td>14</td><td>Двудольность</td><td>O(V+E)</td><td>⭐⭐⭐</td></tr><tr><td>15</td><td>Мосты (Тарьян)</td><td>O(V+E)</td><td>⭐⭐⭐</td></tr><tr><td>16</td><td>SCC</td><td>O(V+E)</td><td>⭐⭐⭐</td></tr><tr><td>17</td><td>DSU / Union-Find</td><td>O(α(n))</td><td>⭐⭐⭐⭐⭐</td></tr></tbody></table></div></div>
+        <a href="/graphs" class="btn btn-dark mb-5">← Назад к теории графов</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

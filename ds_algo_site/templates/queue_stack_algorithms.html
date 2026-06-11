@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы очередей и стека — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A Справочник</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/trees">🌳 Деревья</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hashing">#️⃣ Хеши</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/linked-lists">🔗 Списки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sorting">📊 Сортировки</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/queue-stack-algorithms">📦 Алгоритмы</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">⚙️ Алгоритмы очередей и стека</h1>
+        <div class="alert alert-warning">
+            🎯 Стек и очередь — основа для многих алгоритмов (BFS, DFS, парсинг, окна). Знайте паттерны!
+        </div>
+
+        <!-- Навигация -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5>📑 Содержание:</h5>
+                <div class="row">
+                    <div class="col-md-3"><a href="#stack-patterns" class="btn btn-outline-info btn-sm w-100 mb-2">Паттерны стека (7)</a></div>
+                    <div class="col-md-3"><a href="#queue-patterns" class="btn btn-outline-info btn-sm w-100 mb-2">Паттерны очереди (5)</a></div>
+                    <div class="col-md-3"><a href="#deque-patterns" class="btn btn-outline-info btn-sm w-100 mb-2">Deque / Sliding Window (4)</a></div>
+                    <div class="col-md-3"><a href="#priority" class="btn btn-outline-info btn-sm w-100 mb-2">Priority Queue (4)</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Паттерны стека -->
+        <h2 id="stack-patterns" class="border-bottom pb-2">📌 Паттерны и алгоритмы стека</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>1. Проверка скобок (Valid Parentheses) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Каждую открывающую → в стек, закрывающую → сверяем с вершиной. В конце стек должен быть пуст.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(n)</td></tr>
+                </table>
+                <p><strong>Самый частый вопрос на собеседованиях!</strong></p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>2. Вычисление выражений (Evaluate Expression) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Парсинг инфиксной/постфиксной записи. Стек операндов + стек операторов (или один стек для RPN).</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>3. Next Greater Element (Следующий больший) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Monotonic Stack (убывающий): проходим массив, пока элемент > вершины стека → извлекаем (это ответ для них).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(n)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>4. Min Stack (Стек с минимумом) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Поддерживать дополнительный стек минимумов. При push — минимум из нового и текущего минимума. O(1) на getMin().</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>5. Реализация стека через две очереди</strong></div>
+            <div class="card-body">
+                <p>При push — во вторую очередь, затем перелить первую во вторую, поменять их местами. Pop — из первой очереди.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>6. Удаление смежных дубликатов</strong></div>
+            <div class="card-body">
+                <p>Идём по строке: если символ == вершина стека → pop, иначе push. Удаляет пары одинаковых символов.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>7. Largest Rectangle in Histogram ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Monotonic Stack (возрастающий): находим для каждого столбца границы, где он минимален.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(n)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Паттерны очереди -->
+        <h2 id="queue-patterns" class="border-bottom pb-2 mt-5">📌 Паттерны очереди</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>8. Реализация очереди через два стека ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Два стека: входной и выходной. Enqueue → push во входной. Dequeue → если выходной пуст, перелить входной в выходной (реверс), затем pop.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Enqueue</th><td>O(1)</td><th>Dequeue</th><td>Амортизированное O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>9. Реализация циклической очереди (Circular Queue) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Массив фиксированного размера, два указателя front и rear. Использовать modulo для зацикливания.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>10. BFS с очередью ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Обход в ширину: очередь хранит узлы текущего уровня. Ключевой алгоритм для графов и деревьев.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(V + E)</td><th>Память</th><td>O(V)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>11. Очередь с использованием связного списка</strong></div>
+            <div class="card-body">
+                <p>Head для dequeue, tail для enqueue. Все операции O(1).</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>12. Перемешивание очереди (Interleave Queue)</strong></div>
+            <div class="card-body">
+                <p>Разделить очередь пополам, чередовать элементы: первый из первой половины, первый из второй, второй из первой...</p>
+            </div>
+        </div>
+
+        <!-- Deque / Sliding Window -->
+        <h2 id="deque-patterns" class="border-bottom pb-2 mt-5">📌 Deque и Sliding Window</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>13. Sliding Window Maximum ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Deque хранит индексы элементов окна в порядке убывания значений. При движении окна: удалить вышедшие, добавить новый.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(k), k — размер окна</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>14. Sliding Window Minimum</strong></div>
+            <div class="card-body">
+                <p>Аналогично, но Deque в порядке возрастания.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>15. First Negative in Window</strong></div>
+            <div class="card-body">
+                <p>Храним в Deque только отрицательные числа окна, извлекаем первое для каждого положения.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>16. Palindrome Check с Deque</strong></div>
+            <div class="card-body">
+                <p>Добавить все символы в Deque, затем сравнивать popLeft и popRight.</p>
+            </div>
+        </div>
+
+        <!-- Priority Queue -->
+        <h2 id="priority" class="border-bottom pb-2 mt-5">📌 Priority Queue (Heap)</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>17. K-й наибольший элемент (Kth Largest) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Min-heap размера K. Проходим массив → если размер > K, удаляем минимум. В конце вершина кучи — K-й наибольший.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n log k)</td><th>Память</th><td>O(k)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>18. Top K частых элементов ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Подсчитать частоты (HashMap) → min-heap по частоте размера K.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n log k)</td><th>Память</th><td>O(n)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>19. Merge K Sorted Lists ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Min-heap хранит головы всех списков. Извлекаем минимум, добавляем его следующий элемент в кучу.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(N log k), N — всего элементов, k — число списков</td><th>Память</th><td>O(k)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>20. Median Finder (Find Median from Data Stream) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Две кучи: max-heap для левой половины, min-heap для правой. Медиана — вершина одной из куч.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Вставка</th><td>O(log n)</td><th>Поиск медианы</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Итоговая таблица -->
+        <div class="card mt-5 mb-4">
+            <div class="card-header bg-info text-white"><h3>📊 Сводная таблица</h3></div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr><th>#</th><th>Алгоритм</th><th>Структура</th><th>Время</th><th>Собесы</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Valid Parentheses</td><td>Стек</td><td>O(n)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>2</td><td>Evaluate Expression</td><td>Стек</td><td>O(n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>3</td><td>Next Greater Element</td><td>Monotonic Stack</td><td>O(n)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>4</td><td>Min Stack</td><td>Стек</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>5</td><td>Стек через 2 очереди</td><td>Очередь</td><td>O(n) push</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>6</td><td>Remove Adjacent Duplicates</td><td>Стек</td><td>O(n)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>7</td><td>Largest Rectangle</td><td>Monotonic Stack</td><td>O(n)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>8</td><td>Очередь через 2 стека</td><td>Стек</td><td>O(1) аморт.</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>9</td><td>Circular Queue</td><td>Очередь</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>10</td><td>BFS</td><td>Очередь</td><td>O(V+E)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>11</td><td>Очередь на списке</td><td>Очередь</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>12</td><td>Interleave Queue</td><td>Очередь</td><td>O(n)</td><td>⭐⭐</td></tr>
+                        <tr><td>13</td><td>Sliding Window Max</td><td>Deque</td><td>O(n)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>14</td><td>Sliding Window Min</td><td>Deque</td><td>O(n)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>15</td><td>First Negative in Window</td><td>Deque</td><td>O(n)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>16</td><td>Palindrome с Deque</td><td>Deque</td><td>O(n)</td><td>⭐⭐</td></tr>
+                        <tr><td>17</td><td>Kth Largest</td><td>Priority Queue</td><td>O(n log k)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>18</td><td>Top K Frequent</td><td>Priority Queue</td><td>O(n log k)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>19</td><td>Merge K Sorted Lists</td><td>Priority Queue</td><td>O(N log k)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>20</td><td>Median from Stream</td><td>Priority Queue</td><td>O(log n)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="/queues-stacks" class="btn btn-info mb-5">← Назад к теории</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

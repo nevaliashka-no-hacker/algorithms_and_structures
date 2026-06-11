@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Структуры данных и Алгоритмы — Полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A Справочник</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">📊 Сортировки</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/sorting">Теория</a></li>
+                            <li><a class="dropdown-item" href="/sorting-algorithms">13 алгоритмов</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">🔗 Списки</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/linked-lists">Теория</a></li>
+                            <li><a class="dropdown-item" href="/linked-list-algorithms">20 алгоритмов</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">📦 Стек/Очередь</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/queues-stacks">Теория</a></li>
+                            <li><a class="dropdown-item" href="/queue-stack-algorithms">20 алгоритмов</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">🌳 Деревья</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/trees">Теория</a></li>
+                            <li><a class="dropdown-item" href="/tree-algorithms">27 алгоритмов</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">#️⃣ Хеши</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/hashing">Теория</a></li>
+                            <li><a class="dropdown-item" href="/hash-algorithms">25 алгоритмов</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4">Структуры данных и Алгоритмы</h1>
+            <p class="lead">Полный справочник для экзаменов и собеседований</p>
+            <p class="text-muted">10 разделов • 160+ алгоритмов • Big O • Python / C / C++</p>
+        </div>
+
+        <div class="row">
+            <!-- Ряд 1: Базовые структуры -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-danger">
+                    <div class="card-body text-center">
+                        <h2>📊</h2><h4>Сортировки</h4>
+                        <p>Quick, Merge, Heap, Timsort, Counting, Radix</p>
+                        <div class="d-grid gap-2">
+                            <a href="/sorting" class="btn btn-outline-danger btn-sm">Теория</a>
+                            <a href="/sorting-algorithms" class="btn btn-danger btn-sm">13 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-warning">
+                    <div class="card-body text-center">
+                        <h2>🔗</h2><h4>Связные списки</h4>
+                        <p>Два указателя, циклы, развороты, LRU Cache</p>
+                        <div class="d-grid gap-2">
+                            <a href="/linked-lists" class="btn btn-outline-warning btn-sm">Теория</a>
+                            <a href="/linked-list-algorithms" class="btn btn-warning btn-sm">20 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-info">
+                    <div class="card-body text-center">
+                        <h2>📦</h2><h4>Стек и Очередь</h4>
+                        <p>Monotonic Stack, BFS, Sliding Window, Heap</p>
+                        <div class="d-grid gap-2">
+                            <a href="/queues-stacks" class="btn btn-outline-info btn-sm">Теория</a>
+                            <a href="/queue-stack-algorithms" class="btn btn-info btn-sm">20 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ряд 2: Деревья и Хеши -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-success">
+                    <div class="card-body text-center">
+                        <h2>🌳</h2><h4>Деревья</h4>
+                        <p>BST, AVL, Красно-чёрные, Trie, B-деревья</p>
+                        <div class="d-grid gap-2">
+                            <a href="/trees" class="btn btn-outline-success btn-sm">Теория</a>
+                            <a href="/tree-algorithms" class="btn btn-success btn-sm">27 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-primary">
+                    <div class="card-body text-center">
+                        <h2>#️⃣</h2><h4>Хеширование</h4>
+                        <p>Хеш-таблицы, коллизии, крипто-хеши</p>
+                        <div class="d-grid gap-2">
+                            <a href="/hashing" class="btn btn-outline-primary btn-sm">Теория</a>
+                            <a href="/hash-algorithms" class="btn btn-primary btn-sm">25 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-secondary">
+                    <div class="card-body text-center">
+                        <h2>🔍</h2><h4>Бинарный поиск</h4>
+                        <p>Lower/Upper Bound, rotated array, ответ по значению</p>
+                        <div class="d-grid gap-2">
+                            <a href="/binary-search" class="btn btn-secondary btn-sm w-100">12 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ряд 3: Графы, DP, Greedy, Анализ -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-dark">
+                    <div class="card-body text-center">
+                        <h2>🕸️</h2><h4>Графы</h4>
+                        <p>DFS, BFS, Dijkstra, MST, топологическая сортировка</p>
+                        <div class="d-grid gap-2">
+                            <a href="/graphs" class="btn btn-outline-dark btn-sm">Теория</a>
+                            <a href="/graph-algorithms" class="btn btn-dark btn-sm">18 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" style="border-color: #e83e8c;">
+                    <div class="card-body text-center">
+                        <h2>🧩</h2><h4>Динамическое программирование</h4>
+                        <p>Knapsack, LCS, LIS, Coin Change, пути в матрице</p>
+                        <div class="d-grid gap-2">
+                            <a href="/dp" class="btn btn-sm w-100" style="background-color: #e83e8c; color: white;">14 паттернов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" style="border-color: #fd7e14;">
+                    <div class="card-body text-center">
+                        <h2>💰</h2><h4>Жадные алгоритмы</h4>
+                        <p>Activity Selection, Huffman, расписание, размен</p>
+                        <div class="d-grid gap-2">
+                            <a href="/greedy" class="btn btn-sm w-100" style="background-color: #fd7e14; color: white;">10 алгоритмов</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 mx-auto">
+                <div class="card h-100" style="border-color: #6f42c1;">
+                    <div class="card-body text-center">
+                        <h2>📐</h2><h4>Анализ алгоритмов</h4>
+                        <p>Master Theorem, амортизация, P vs NP, Big O строго</p>
+                        <div class="d-grid gap-2">
+                            <a href="/algorithm-analysis" class="btn btn-sm w-100" style="background-color: #6f42c1; color: white;">Теория + формулы</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info mt-4 text-center">
+            💡 <strong>160+ алгоритмов с Big O и звёздами ⭐ частоты на собеседованиях.</strong> Для экзамена: начните с сортировок и графов, они — 40% билетов.
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

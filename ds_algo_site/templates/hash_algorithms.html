@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы хеширования — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 Data Structures</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trees">🌳 Деревья</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hashing">#️⃣ Теория</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/hash-algorithms">⚙️ Алгоритмы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">⚙️ Все алгоритмы хеширования</h1>
+
+        <div class="alert alert-warning">
+            🎯 <strong>Для собеседований:</strong> Хеш-таблица — самая популярная структура данных. Знать всё обязательно!
+        </div>
+
+        <!-- НАВИГАЦИЯ -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5>📑 Содержание:</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="#hash-functions" class="btn btn-outline-primary btn-sm w-100 mb-2">Хеш-функции (6 алгоритмов) ⭐</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#collision-resolution" class="btn btn-outline-primary btn-sm w-100 mb-2">Разрешение коллизий (5 методов) ⭐</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#hash-table-ops" class="btn btn-outline-primary btn-sm w-100 mb-2">Операции хеш-таблиц (4) ⭐</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#crypto" class="btn btn-outline-primary btn-sm w-100 mb-2">Криптографические (5 алгоритмов)</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="#advanced-hash" class="btn btn-outline-primary btn-sm w-100 mb-2">Продвинутые техники (5)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ ХЕШ-ФУНКЦИИ ============ -->
+        <h2 id="hash-functions" class="border-bottom pb-2">📌 Хеш-функции</h2>
+        <p class="text-muted">Функции, преобразующие данные в числовой индекс для хеш-таблицы.</p>
+
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white"><strong>1. Метод деления (Division Method) ⭐</strong></div>
+            <div class="card-body">
+                <p><code>h(k) = k mod m</code>, где m — размер таблицы (обычно простое число).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(1)</td><th>Качество</th><td>Хорошее, если m простое</td></tr>
+                </table>
+                <p><strong>Недостаток:</strong> Плохо работает, если m — степень двойки (используются только младшие биты).</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white"><strong>2. Метод умножения (Multiplication Method)</strong></div>
+            <div class="card-body">
+                <p><code>h(k) = floor(m * (k * A mod 1))</code>, где A — константа (0 < A < 1), обычно A ≈ (√5-1)/2 (золотое сечение).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(1)</td><th>Качество</th><td>Не зависит от выбора m</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white"><strong>3. djb2 (алгоритм Дэниела Бернштейна) ⭐</strong></div>
+            <div class="card-body">
+                <p><code>hash = hash * 33 + c</code> — простой и эффективный алгоритм для строк. Широко используется.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(n), n — длина строки</td><th>Качество</th><td>Отличное распределение</td></tr>
+                </table>
+                <p><strong>Реализация:</strong> Начинается с hash=5381, затем для каждого символа <code>hash = ((hash << 5) + hash) + c</code>.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white"><strong>4. sdbm</strong></div>
+            <div class="card-body">
+                <p><code>hash = hash * 65599 + c</code>. Использовался в базе данных sdbm.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(n)</td><th>Качество</th><td>Хорошее</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white"><strong>5. FNV-1a (Fowler-Noll-Vo)</strong></div>
+            <div class="card-body">
+                <p><code>hash = (hash XOR byte) * FNV_prime</code>. Быстрый, хорошее рассеивание. Используется в DNS-серверах.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(n)</td><th>Качество</th><td>Отличное</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-primary text-white"><strong>6. Полиномиальное хеширование (Polynomial Rolling Hash) ⭐</strong></div>
+            <div class="card-body">
+                <p><code>hash(s) = s[0]*p^(n-1) + s[1]*p^(n-2) + ... + s[n-1] mod m</code>. Используется в алгоритме Рабина-Карпа, строках.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(n)</td><th>Качество</th><td>Хорошее при правильном выборе p и m</td></tr>
+                </table>
+                <p><strong>Важно:</strong> Позволяет пересчитывать хеш за O(1) при сдвиге окна — основа строковых алгоритмов.</p>
+            </div>
+        </div>
+
+        <!-- ============ РАЗРЕШЕНИЕ КОЛЛИЗИЙ ============ -->
+        <h2 id="collision-resolution" class="border-bottom pb-2 mt-5">📌 Методы разрешения коллизий</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>7. Метод цепочек (Separate Chaining) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Каждая ячейка хеш-таблицы содержит связный список (или другое дерево) всех элементов с одинаковым хешем.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Поиск</th><td>O(1) средний, O(n) худший</td><th>Вставка</th><td>O(1)</td><th>Удаление</th><td>O(1) при двусвязном списке</td></tr>
+                </table>
+                <p><strong>Плюсы:</strong> Простая реализация, неограниченное число элементов. <strong>Минусы:</strong> Дополнительная память на указатели.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>8. Линейное пробирование (Linear Probing) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> При коллизии ищем следующую свободную ячейку: <code>h(k, i) = (h(k) + i) mod m</code>.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Поиск</th><td>O(1) средний</td><th>Вставка</th><td>O(1) средний</td><th>Проблема</th><td>Кластеризация</td></tr>
+                </table>
+                <p><strong>Проблема кластеризации:</strong> Образуются длинные непрерывные группы занятых ячеек → замедление.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>9. Квадратичное пробирование (Quadratic Probing)</strong></div>
+            <div class="card-body">
+                <p><code>h(k, i) = (h(k) + c1*i + c2*i²) mod m</code>. Уменьшает кластеризацию по сравнению с линейным.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Поиск</th><td>O(1) средний</td><th>Проблема</th><td>Вторичная кластеризация</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>10. Двойное хеширование (Double Hashing) ⭐</strong></div>
+            <div class="card-body">
+                <p><code>h(k, i) = (h1(k) + i * h2(k)) mod m</code>. Использует вторую хеш-функцию для шага. Лучший метод открытой адресации.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Поиск</th><td>O(1) средний</td><th>Качество</th><td>Отличное распределение</td></tr>
+                </table>
+                <p><strong>Требование:</strong> h2(k) и m должны быть взаимно простыми. Обычно m — степень 2, h2(k) — нечётное.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white"><strong>11. Perfect Hashing (Идеальное хеширование)</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Для статического набора ключей строится хеш-функция без коллизий. Двухуровневая схема: первичная + вторичные таблицы.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Поиск</th><td>O(1) гарантированный</td><th>Применение</th><td>Компиляторы (ключевые слова)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ ОПЕРАЦИИ ============ -->
+        <h2 id="hash-table-ops" class="border-bottom pb-2 mt-5">📌 Операции с хеш-таблицами</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>12. Вставка (Insert) ⭐</strong></div>
+            <div class="card-body">
+                <p>Вычисление хеша → проверка на коллизию → разрешение коллизии → вставка. При превышении load factor — рехэширование.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(1) средняя, O(n) худшая с рехэшированием</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>13. Поиск (Search) ⭐</strong></div>
+            <div class="card-body">
+                <p>Вычисление хеша → проверка ячейки → если коллизия, обход по методу разрешения.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(1) средняя, O(n) худшая</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>14. Удаление (Delete) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Проблема:</strong> При открытой адресации простое удаление ломает поиск. Решение: использовать tombstone (маркер "удалено").</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(1) средняя</td><th>Особенность</th><td>Tombstone в открытой адресации</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-success text-white"><strong>15. Рехэширование (Rehashing) ⭐</strong></div>
+            <div class="card-body">
+                <p>При достижении load factor (обычно 0.75) таблица увеличивается (обычно вдвое) и все элементы вставляются заново.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(n)</td><th>Амортизированная</th><td>O(1) на вставку</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============ КРИПТОГРАФИЧЕСКИЕ ============ -->
+        <h2 id="crypto" class="border-bottom pb-2 mt-5">📌 Криптографические хеш-функции</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>16. MD5 (Message Digest 5)</strong></div>
+            <div class="card-body">
+                <p>128-битный хеш. <strong>Сломан!</strong> Не использовать в безопасности, только для проверки целостности несекретных данных.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Размер</th><td>128 бит (32 hex)</td><th>Статус</th><td>Устарел</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>17. SHA-1 (Secure Hash Algorithm 1)</strong></div>
+            <div class="card-body">
+                <p>160-битный хеш. <strong>Сломан!</strong> Используется в Git, но для безопасности непригоден.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Размер</th><td>160 бит</td><th>Статус</th><td>Устарел</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>18. SHA-256 (часть SHA-2) ⭐</strong></div>
+            <div class="card-body">
+                <p>256-битный хеш. Текущий стандарт для криптографии, блокчейна (Bitcoin), цифровых подписей.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Размер</th><td>256 бит (64 hex)</td><th>Статус</th><td>Актуальный</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>19. SHA-3 (Keccak)</strong></div>
+            <div class="card-body">
+                <p>Новый стандарт, отличная от SHA-2 архитектура (sponge construction). Более устойчив к некоторым атакам.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Размер</th><td>Переменный (224, 256, 384, 512)</td><th>Статус</th><td>Актуальный</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-danger text-white"><strong>20. Bcrypt / Argon2 (хеширование паролей) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Не просто хеш!</strong> Ключевое отличие: медленные функции с солью (salt) и cost factor для защиты от перебора и rainbow tables.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Особенность</th><td>Настраиваемая сложность</td><th>Применение</th><td>Хранение паролей</td></tr>
+                </table>
+                <p><strong>Всегда используйте bcrypt/Argon2 для паролей, никогда — SHA/MD5!</strong></p>
+            </div>
+        </div>
+
+        <!-- ============ ПРОДВИНУТЫЕ ============ -->
+        <h2 id="advanced-hash" class="border-bottom pb-2 mt-5">📌 Продвинутые техники хеширования</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>21. Consistent Hashing ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Распределение ключей по кольцу хешей. При добавлении/удалении сервера перемещается минимум ключей. Используется в CDN, распределённых БД.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Применение</th><td>Распределённые системы, кеширование</td><th>Пример</th><td>Amazon Dynamo, Cassandra</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>22. Bloom Filter (Фильтр Блума) ⭐</strong></div>
+            <div class="card-body">
+                <p><strong>Описание:</strong> Вероятностная структура для проверки "возможно, есть" или "точно нет". Использует несколько хеш-функций и битовый массив.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(k), k — число хеш-функций</td><th>Память</th><td>O(m) бит</td></tr>
+                </table>
+                <p><strong>Применение:</strong> Проверка паролей (не скомпрометирован ли), кеш, БД.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>23. Cuckoo Hashing</strong></div>
+            <div class="card-body">
+                <p>Две хеш-таблицы с разными функциями. Если место занято — вытесняем элемент в другую таблицу. Гарантирует O(1) worst-case для поиска.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>24. Алгоритм Рабина-Карпа (поиск подстроки) ⭐</strong></div>
+            <div class="card-body">
+                <p>Использует rolling hash для поиска подстроки: хеш окна пересчитывается за O(1), затем сравнивается с хешем образца.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Сложность</th><td>O(n + m) средняя, O(n*m) худшая</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>25. Merkle Tree (Дерево Меркла)</strong></div>
+            <div class="card-body">
+                <p>Каждый лист — хеш данных, каждый внутренний узел — хеш дочерних хешей. Корень (root hash) подтверждает целостность всех данных.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Применение</th><td>Блокчейн (Bitcoin, Ethereum), Git, BitTorrent</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ИТОГОВАЯ ТАБЛИЦА -->
+        <div class="card mt-5 mb-4">
+            <div class="card-header bg-primary text-white"><h3>📊 Сводная таблица алгоритмов хеширования</h3></div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr><th>#</th><th>Алгоритм</th><th>Категория</th><th>Сложность</th><th>Собесы</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Метод деления</td><td>Хеш-функция</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>2</td><td>Метод умножения</td><td>Хеш-функция</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>3</td><td>djb2</td><td>Хеш-функция</td><td>O(n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>4</td><td>sdbm</td><td>Хеш-функция</td><td>O(n)</td><td>⭐⭐</td></tr>
+                        <tr><td>5</td><td>FNV-1a</td><td>Хеш-функция</td><td>O(n)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>6</td><td>Полиномиальный хеш</td><td>Хеш-функция</td><td>O(n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>7</td><td>Метод цепочек</td><td>Коллизии</td><td>O(1) сред.</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>8</td><td>Линейное пробирование</td><td>Коллизии</td><td>O(1) сред.</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>9</td><td>Квадратичное пробирование</td><td>Коллизии</td><td>O(1) сред.</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>10</td><td>Двойное хеширование</td><td>Коллизии</td><td>O(1) сред.</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>11</td><td>Идеальное хеширование</td><td>Коллизии</td><td>O(1) гарант.</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>12</td><td>Вставка</td><td>Операция</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>13</td><td>Поиск</td><td>Операция</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>14</td><td>Удаление</td><td>Операция</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>15</td><td>Рехэширование</td><td>Операция</td><td>O(n) аморт.</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>16</td><td>MD5</td><td>Крипто</td><td>—</td><td>⭐⭐</td></tr>
+                        <tr><td>17</td><td>SHA-1</td><td>Крипто</td><td>—</td><td>⭐⭐</td></tr>
+                        <tr><td>18</td><td>SHA-256</td><td>Крипто</td><td>—</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>19</td><td>SHA-3</td><td>Крипто</td><td>—</td><td>⭐⭐</td></tr>
+                        <tr><td>20</td><td>Bcrypt/Argon2</td><td>Крипто</td><td>Настраиваемая</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>21</td><td>Consistent Hashing</td><td>Продвинутые</td><td>O(log n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>22</td><td>Bloom Filter</td><td>Продвинутые</td><td>O(k)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>23</td><td>Cuckoo Hashing</td><td>Продвинутые</td><td>O(1) worst</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>24</td><td>Рабин-Карп</td><td>Продвинутые</td><td>O(n+m)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>25</td><td>Merkle Tree</td><td>Продвинутые</td><td>O(log n)</td><td>⭐⭐⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="/hashing" class="btn btn-primary mb-5">← Назад к теории хеширования</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

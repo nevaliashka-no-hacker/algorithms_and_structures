@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графы — теория</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/graphs">🕸️ Теория</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/graph-algorithms">⚙️ Алгоритмы</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-dark">
+            📚 <strong>Алгоритмы графов?</strong> <a href="/graph-algorithms" class="alert-link">18 алгоритмов с полным разбором</a>
+        </div>
+
+        <h1>🕸️ Графы</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Что такое граф?</h2>
+                <p>Граф — это множество <strong>вершин (V)</strong> и <strong>рёбер (E)</strong>, их соединяющих: G = (V, E).</p>
+                <h5>Классификация:</h5>
+                <ul>
+                    <li><strong>Ориентированный (Directed)</strong> — рёбра имеют направление (стрелки)</li>
+                    <li><strong>Неориентированный (Undirected)</strong> — рёбра двунаправленные</li>
+                    <li><strong>Взвешенный (Weighted)</strong> — каждое ребро имеет вес/стоимость</li>
+                    <li><strong>Циклический / Ациклический (DAG)</strong> — есть/нет циклов</li>
+                    <li><strong>Связный</strong> — между любыми двумя вершинами есть путь</li>
+                    <li><strong>Полный (Complete)</strong> — каждые две вершины соединены</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Способы представления</h2>
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Метод</th><th>Память</th><th>Проверка ребра</th><th>Перебор соседей</th><th>Применение</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Матрица смежности</strong></td><td>O(V²)</td><td>O(1)</td><td>O(V)</td><td>Плотные графы</td></tr>
+                        <tr><td><strong>Список смежности</strong></td><td>O(V + E)</td><td>O(deg)</td><td>O(deg)</td><td>Разреженные графы</td></tr>
+                        <tr><td><strong>Список рёбер</strong></td><td>O(E)</td><td>O(E)</td><td>O(E)</td><td>Алгоритм Крускала</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Сравнение Python / C / C++</h2>
+                <table class="table table-bordered">
+                    <thead class="table-dark"><tr><th>Аспект</th><th>Python</th><th>C</th><th>C++</th></tr></thead>
+                    <tbody>
+                        <tr><td>Список смежности</td><td><code>defaultdict(list)</code></td><td>Массив связных списков</td><td><code>vector<vector<int>></code></td></tr>
+                        <tr><td>BFS/DFS</td><td><code>deque</code> / рекурсия</td><td>Очередь на массиве / рекурсия</td><td><code>queue</code> / рекурсия</td></tr>
+                        <tr><td>Приоритетная очередь</td><td><code>heapq</code></td><td>Реализация кучи вручную</td><td><code>priority_queue</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Применение графов</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">🌐 Навигация (Google Maps — Dijkstra/A*)</li>
+                    <li class="list-group-item">📱 Социальные сети (друзья — связи)</li>
+                    <li class="list-group-item">🔗 Интернет (роутинг — BGP)</li>
+                    <li class="list-group-item">🧠 ИИ (графы знаний)</li>
+                    <li class="list-group-item">🖥️ Компиляторы (граф зависимостей)</li>
+                    <li class="list-group-item">⚡ Электросети (MST для разводки)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

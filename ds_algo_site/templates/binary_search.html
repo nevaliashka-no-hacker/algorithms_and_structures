@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бинарный поиск — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-secondary">
+        <div class="container"><a class="navbar-brand text-white" href="/">📊 DS&A</a></div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>🔍 Бинарный поиск (12 паттернов)</h1>
+        <div class="alert alert-secondary">🎯 Бинарный поиск — не только поиск в массиве. Это целый класс алгоритмов поиска по ответу!</div>
+
+        <div class="card mb-4"><div class="card-body">
+            <h2>Классический бинарный поиск ⭐⭐⭐⭐⭐</h2>
+            <p>Делим отсортированный массив пополам, отсекаем половину. O(log n).</p>
+            <h5>Ключевые ошибки новичков:</h5>
+            <ul>
+                <li>Не <code>mid = (l + r) // 2</code>, а <code>mid = l + (r - l) // 2</code> (защита от переполнения в C/C++)</li>
+                <li>Путаница с <code><</code> vs <code><=</code> в условии while</li>
+                <li>Выбор <code>mid</code> / <code>mid - 1</code> / <code>mid + 1</code> при сужении границ</li>
+            </ul>
+        </div></div>
+
+        <h2 class="border-bottom pb-2">📌 Паттерны бинарного поиска</h2>
+
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>1. Lower Bound (первый ≥ x) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Найти первый элемент, который ≥ x. <code>bisect_left</code> в Python.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>2. Upper Bound (первый > x) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Найти первый элемент > x. <code>bisect_right</code> в Python.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>3. Поиск в Rotated Sorted Array ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Массив сдвинут (4,5,6,7,0,1,2). Определяем, в какой половине искать.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>4. Поиск пика (Peak Element) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Найти элемент, который ≥ соседей. Смотрим на mid и его соседа, идём в сторону возрастания.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>5. Поиск в 2D-матрице ⭐⭐⭐</strong></div><div class="card-body"><p>Каждая строка и столбец отсортированы. Начинаем с правого верхнего угла.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>6. Бинарный поиск по ответу (на минимум/максимум) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Угадываем ответ и проверяем функцией check(). Делим диапазон возможных ответов.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>7. Поиск минимального в Rotated Sorted Array ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Найти точку поворота. Сравниваем mid с правым концом.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>8. Поиск пропущенного числа</strong></div><div class="card-body"><p>В отсортированном массиве 0..n пропущено одно. Сравниваем arr[mid] с mid.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>9. Koko Eating Bananas (пример поиска по ответу) ⭐⭐⭐</strong></div><div class="card-body"><p>Минимальная скорость поедания. guess = скорость, check = успеет ли за H часов.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>10. Split Array Largest Sum ⭐⭐⭐</strong></div><div class="card-body"><p>Разбить массив на k частей, минимизировать максимальную сумму части. Поиск по ответу.</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>11. Экспоненциальный поиск (Exponential Search)</strong></div><div class="card-body"><p>Для неограниченных массивов. Удваиваем индекс, затем бинарный поиск. O(log n).</p></div></div>
+        <div class="card mb-3"><div class="card-header bg-secondary text-white"><strong>12. Троичный поиск (Ternary Search) ⭐⭐</strong></div><div class="card-body"><p>Для унимодальных функций (один пик). Делим на три части. O(log₃ n).</p></div></div>
+
+        <div class="card mt-5 mb-4"><div class="card-header bg-secondary text-white"><h3>📊 Сводная таблица</h3></div><div class="card-body table-responsive"><table class="table table-striped"><thead><tr><th>#</th><th>Паттерн</th><th>Время</th><th>Собесы</th></tr></thead><tbody><tr><td>1</td><td>Lower Bound</td><td>O(log n)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>2</td><td>Upper Bound</td><td>O(log n)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>3</td><td>Rotated Array</td><td>O(log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>4</td><td>Peak Element</td><td>O(log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>5</td><td>2D Matrix</td><td>O(n+m)</td><td>⭐⭐⭐</td></tr><tr><td>6</td><td>Поиск по ответу</td><td>O(log range * check)</td><td>⭐⭐⭐⭐</td></tr><tr><td>7</td><td>Min в Rotated</td><td>O(log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>8</td><td>Пропущенное число</td><td>O(log n)</td><td>⭐⭐⭐</td></tr><tr><td>9</td><td>Koko Bananas</td><td>O(n log max)</td><td>⭐⭐⭐</td></tr><tr><td>10</td><td>Split Array</td><td>O(n log sum)</td><td>⭐⭐⭐</td></tr><tr><td>11</td><td>Exponential Search</td><td>O(log n)</td><td>⭐⭐</td></tr><tr><td>12</td><td>Ternary Search</td><td>O(log₃ n)</td><td>⭐⭐</td></tr></tbody></table></div></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

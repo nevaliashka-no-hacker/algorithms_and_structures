@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сортировки — виды и теория</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A Справочник</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/trees">🌳 Деревья</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hashing">#️⃣ Хеши</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/linked-lists">🔗 Списки</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/sorting">📊 Сортировки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/queues-stacks">📦 Очереди/Стек</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-danger">
+            📚 <strong>Алгоритмы сортировок?</strong> Перейдите в раздел <a href="/sorting-algorithms" class="alert-link">Алгоритмы сортировок</a> — 20+ алгоритмов с полным разбором.
+        </div>
+
+        <h1 class="mb-4">📊 Сортировки</h1>
+
+        <!-- Что такое -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Что такое сортировка?</h2>
+                <p>Сортировка — это алгоритм упорядочивания элементов в определённом порядке (возрастание, убывание, лексикографический). Фундаментальная операция в computer science.</p>
+                <h5>Ключевые понятия:</h5>
+                <ul>
+                    <li><strong>Стабильность</strong> — равные элементы сохраняют исходный порядок</li>
+                    <li><strong>In-place</strong> — алгоритм использует O(1) дополнительной памяти</li>
+                    <li><strong>Адаптивность</strong> — ускоряется на частично отсортированных данных</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Классификация -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Классификация алгоритмов сортировки</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100"><div class="card-header bg-danger text-white"><strong>По сложности времени</strong></div>
+                        <div class="card-body">
+                            <strong>O(n²):</strong> Bubble, Insertion, Selection<br>
+                            <strong>O(n log n):</strong> Merge, Quick, Heap<br>
+                            <strong>O(n):</strong> Counting, Radix, Bucket (специальные)
+                        </div></div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100"><div class="card-header bg-danger text-white"><strong>По методу</strong></div>
+                        <div class="card-body">
+                            <strong>Сравнениями:</strong> Quick, Merge, Heap<br>
+                            <strong>Подсчётом:</strong> Counting, Radix<br>
+                            <strong>Вставками:</strong> Insertion, Shell
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сравнение языков -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Встроенная сортировка в языках</h2>
+                <table class="table table-bordered">
+                    <thead class="table-danger">
+                        <tr><th>Язык</th><th>Функция</th><th>Алгоритм</th><th>Сложность</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Python</strong></td><td><code>list.sort()</code>, <code>sorted()</code></td><td>Timsort (гибрид Merge + Insertion)</td><td>O(n log n), O(n) на отсорт.</td></tr>
+                        <tr><td><strong>C</strong></td><td><code>qsort()</code></td><td>Quick Sort (обычно)</td><td>O(n log n) сред., O(n²) худ.</td></tr>
+                        <tr><td><strong>C++</strong></td><td><code>std::sort()</code></td><td>Introsort (Quick + Heap + Insertion)</td><td>O(n log n) гарант.</td></tr>
+                    </tbody>
+                </table>
+                <div class="alert alert-info mt-2">
+                    ⚠️ <strong>Для собеседования:</strong> Не говорите «я просто вызову <code>.sort()</code>». Нужно знать, как реализовать вручную.
+                </div>
+            </div>
+        </div>
+
+        <!-- Применение -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Где используются сортировки?</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">🗄️ <strong>Базы данных:</strong> ORDER BY, индексы</li>
+                    <li class="list-group-item">🔍 <strong>Поиск:</strong> Бинарный поиск требует отсортированных данных</li>
+                    <li class="list-group-item">📈 <strong>Визуализация:</strong> Графики, рейтинги</li>
+                    <li class="list-group-item">🖼️ <strong>Графика:</strong> Z-буфер, определение видимости</li>
+                    <li class="list-group-item">🤖 <strong>ML:</strong> Подготовка данных, kNN</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

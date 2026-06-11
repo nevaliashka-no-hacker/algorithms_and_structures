@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализ алгоритмов — теория</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #6f42c1;">
+        <div class="container"><a class="navbar-brand text-white" href="/">📊 DS&A</a></div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>📐 Анализ алгоритмов</h1>
+
+        <!-- Big O -->
+        <div class="card mb-4"><div class="card-body">
+            <h2>Асимптотическая нотация</h2>
+            <table class="table table-bordered">
+                <thead><tr><th>Нотация</th><th>Значение</th><th>Аналогия</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>O (Big O)</strong></td><td>Верхняя граница (≤)</td><td>Не хуже, чем...</td></tr>
+                    <tr><td><strong>Ω (Omega)</strong></td><td>Нижняя граница (≥)</td><td>Не лучше, чем...</td></tr>
+                    <tr><td><strong>Θ (Theta)</strong></td><td>Точная оценка (=)</td><td>Ровно...</td></tr>
+                    <tr><td><strong>o (Little o)</strong></td><td>Строгая верхняя (<)</td><td>Строго лучше</td></tr>
+                    <tr><td><strong>ω (Little omega)</strong></td><td>Строгая нижняя (>)</td><td>Строго хуже</td></tr>
+                </tbody>
+            </table>
+            <h5>Правила:</h5>
+            <ul>
+                <li>Отбрасываем константы: O(2n) = O(n)</li>
+                <li>Оставляем старший член: O(n² + n) = O(n²)</li>
+                <li>Сложение: O(f) + O(g) = O(max(f, g))</li>
+                <li>Умножение: O(f) * O(g) = O(f * g)</li>
+            </ul>
+        </div></div>
+
+        <!-- Шкала сложности -->
+        <div class="card mb-4"><div class="card-body">
+            <h2>Шкала сложности (от быстрого к медленному)</h2>
+            <table class="table table-bordered">
+                <thead><tr><th>Сложность</th><th>Пример</th><th>n=100</th><th>n=10⁶</th></tr></thead>
+                <tbody>
+                    <tr class="table-success"><td>O(1)</td><td>Хеш-таблица</td><td>1</td><td>1</td></tr>
+                    <tr class="table-success"><td>O(log n)</td><td>Бинарный поиск</td><td>7</td><td>20</td></tr>
+                    <tr class="table-success"><td>O(n)</td><td>Линейный поиск</td><td>100</td><td>10⁶</td></tr>
+                    <tr class="table-warning"><td>O(n log n)</td><td>Merge Sort</td><td>664</td><td>2×10⁷</td></tr>
+                    <tr class="table-warning"><td>O(n²)</td><td>Bubble Sort</td><td>10 000</td><td>10¹²</td></tr>
+                    <tr class="table-danger"><td>O(2ⁿ)</td><td>Полный перебор</td><td>~10³⁰</td><td>∞</td></tr>
+                    <tr class="table-danger"><td>O(n!)</td><td>Задача коммивояжёра</td><td>~10¹⁵⁸</td><td>∞</td></tr>
+                </tbody>
+            </table>
+        </div></div>
+
+        <!-- Master Theorem -->
+        <div class="card mb-4"><div class="card-body">
+            <h2>Master Theorem (Основная теорема) ⭐⭐⭐⭐⭐</h2>
+            <p>Для рекуррент: <code>T(n) = a * T(n/b) + f(n)</code>, где a ≥ 1, b > 1.</p>
+            <p>Сравниваем <code>f(n)</code> с <code>n^(log_b a)</code>:</p>
+            <table class="table table-bordered">
+                <thead><tr><th>Случай</th><th>Условие</th><th>Решение</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>f(n) = O(n^(log_b a - ε))</td><td>T(n) = Θ(n^(log_b a))</td></tr>
+                    <tr><td>2</td><td>f(n) = Θ(n^(log_b a))</td><td>T(n) = Θ(n^(log_b a) * log n)</td></tr>
+                    <tr><td>3</td><td>f(n) = Ω(n^(log_b a + ε)) + условие регулярности</td><td>T(n) = Θ(f(n))</td></tr>
+                </tbody>
+            </table>
+            <h6>Примеры:</h6>
+            <ul>
+                <li>Merge Sort: T(n)=2T(n/2)+O(n) → a=2,b=2,log₂2=1, f(n)=O(n) → Случай 2 → Θ(n log n)</li>
+                <li>Бинарный поиск: T(n)=T(n/2)+O(1) → a=1,b=2,log₂1=0, f(n)=O(1) → Случай 2 → Θ(log n)</li>
+                <li>DFS дерева: T(n)=2T(n/2)+O(1) → Случай 1 → Θ(n)</li>
+            </ul>
+        </div></div>
+
+        <!-- Амортизационный анализ -->
+        <div class="card mb-4"><div class="card-body">
+            <h2>Амортизационный анализ ⭐⭐⭐⭐</h2>
+            <p>Средняя стоимость операции в худшей последовательности операций.</p>
+            <ul>
+                <li><strong>Aggregate Method:</strong> суммируем все операции, делим на их количество</li>
+                <li><strong>Banker's Method:</strong> "копим кредиты" на дешёвых операциях для дорогих</li>
+                <li><strong>Potential Method:</strong> функция потенциала Φ (как высота подъёма воды)</li>
+            </ul>
+            <h6>Примеры:</h6>
+            <ul>
+                <li>Динамический массив: вставка O(1) амортизированное (удвоение размера)</li>
+                <li>DSU с эвристиками: почти O(1) (обратная функция Аккермана)</li>
+                <li>Хеш-таблица с рехэшированием: O(1) амортизированное</li>
+            </ul>
+        </div></div>
+
+        <!-- P vs NP -->
+        <div class="card mb-4"><div class="card-body">
+            <h2>Классы сложности P vs NP ⭐⭐⭐</h2>
+            <table class="table table-bordered">
+                <tr><td><strong>P (Polynomial)</strong></td><td>Можно решить за полиномиальное время</td><td>Сортировка, поиск</td></tr>
+                <tr><td><strong>NP</strong></td><td>Можно проверить решение за полиномиальное время</td><td>Задача коммивояжёра</td></tr>
+                <tr><td><strong>NP-Complete</strong></td><td>Самые сложные в NP. Если решить одну — решатся все</td><td>SAT, Knapsack decision</td></tr>
+                <tr><td><strong>NP-Hard</strong></td><td>Не хуже, чем NP-Complete. Может быть не в NP</td><td>Задача остановки</td></tr>
+            </table>
+            <p><strong>Открытая проблема:</strong> P = NP? (миллион долларов за решение!)</p>
+        </div></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

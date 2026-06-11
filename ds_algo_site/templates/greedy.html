@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жадные алгоритмы — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #fd7e14;">
+        <div class="container"><a class="navbar-brand text-white" href="/">📊 DS&A</a></div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>💰 Жадные алгоритмы (10 алгоритмов)</h1>
+        <div class="alert" style="background-color: #fff3e0;">🎯 Жадные — когда локально оптимальный выбор ведёт к глобально оптимальному решению.</div>
+
+        <div class="card mb-4"><div class="card-body">
+            <h2>Принцип работы</h2>
+            <p><strong>Жадный алгоритм</strong> на каждом шаге делает наилучший выбор <strong>в данный момент</strong>, не думая о будущем. Работает не всегда, но когда работает — очень быстро.</p>
+            <h5>Доказательство корректности:</h5>
+            <ul>
+                <li><strong>Greedy Choice Property:</strong> глобально оптимальное решение содержит локально жадный выбор</li>
+                <li><strong>Optimal Substructure:</strong> после жадного выбора остаётся подзадача той же структуры</li>
+            </ul>
+        </div></div>
+
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>1. Activity Selection (Задача о выборе заявок) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Даны интервалы [start, end]. Выбрать максимальное число непересекающихся. Сортируем по концу, берём совместимые.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(n log n)</td><th>Память</th><td>O(1)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>2. Fractional Knapsack (Дробный рюкзак) ⭐⭐⭐</strong></div><div class="card-body"><p>Можно брать часть предмета. Сортируем по удельной стоимости (цена/вес), берём максимум.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>3. Код Хаффмана ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Оптимальное префиксное кодирование. Строим дерево снизу, объединяя два самых редких символа.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(n log n)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>4. Размен монет (жадный) ⭐⭐⭐</strong></div><div class="card-body"><p>Для канонических систем (1, 2, 5, 10) работает жадный. Для произвольных — только DP.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>5. Meeting Rooms (конференц-залы) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Сколько залов нужно для всех встреч? Сортируем по началу, приоритетная очередь по концу.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>6. Задача о расписании (Job Sequencing) ⭐⭐⭐</strong></div><div class="card-body"><p>Работы с дедлайнами и прибылью. Максимизировать прибыль. Сортируем по прибыли, ставим ближе к дедлайну.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>7. Минимальное число платформ (Train Platform) ⭐⭐</strong></div><div class="card-body"><p>Даны времена прибытия и отправления поездов. Сколько платформ нужно? Сортируем оба массива, два указателя.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>8. Jump Game (игра в прыжки) ⭐⭐⭐</strong></div><div class="card-body"><p>Можно ли допрыгать до конца? Greedy: поддерживаем furthest достижимый индекс.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(n)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>9. Gas Station (заправки) ⭐⭐⭐</strong></div><div class="card-body"><p>Где начать, чтобы объехать круг? Greedy: если сумма gas-cost ≥ 0, решение есть. Ищем старт.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #fd7e14; color: white;"><strong>10. Разбиение строки (Partition Labels) ⭐⭐</strong></div><div class="card-body"><p>Разбить строку на максимум частей, где каждый символ только в одной части. Храним последнее вхождение.</p></div></div>
+
+        <div class="card mt-5 mb-4"><div class="card-header" style="background-color: #fd7e14; color: white;"><h3>📊 Сводная таблица</h3></div><div class="card-body table-responsive"><table class="table table-striped"><thead><tr><th>#</th><th>Алгоритм</th><th>Время</th><th>Собесы</th></tr></thead><tbody><tr><td>1</td><td>Activity Selection</td><td>O(n log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>2</td><td>Fractional Knapsack</td><td>O(n log n)</td><td>⭐⭐⭐</td></tr><tr><td>3</td><td>Код Хаффмана</td><td>O(n log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>4</td><td>Размен монет</td><td>O(n log n)</td><td>⭐⭐⭐</td></tr><tr><td>5</td><td>Meeting Rooms</td><td>O(n log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>6</td><td>Job Sequencing</td><td>O(n²) / O(n log n)</td><td>⭐⭐⭐</td></tr><tr><td>7</td><td>Train Platform</td><td>O(n log n)</td><td>⭐⭐</td></tr><tr><td>8</td><td>Jump Game</td><td>O(n)</td><td>⭐⭐⭐</td></tr><tr><td>9</td><td>Gas Station</td><td>O(n)</td><td>⭐⭐⭐</td></tr><tr><td>10</td><td>Partition Labels</td><td>O(n)</td><td>⭐⭐</td></tr></tbody></table></div></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

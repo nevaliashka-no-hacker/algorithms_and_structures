@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деревья в структурах данных</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 Data Structures</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/trees">🌳 Теория</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tree-algorithms">⚙️ Алгоритмы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hashing">#️⃣ Хеширование</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-success">
+            📚 <strong>Изучаете алгоритмы?</strong> Перейдите в раздел <a href="/tree-algorithms" class="alert-link">Алгоритмы деревьев</a> — полный список с Big O и сравнением реализаций.
+        </div>
+
+        <h1 class="mb-4">🌳 Деревья в структурах данных</h1>
+
+        <!-- Что такое дерево -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Что такое дерево?</h2>
+                <p class="card-text">Дерево — это <strong>иерархическая нелинейная структура данных</strong>, состоящая из узлов (nodes), соединенных ребрами (edges). В отличие от линейных структур (массивы, списки), деревья отражают иерархические отношения.</p>
+                <h5>Ключевые термины:</h5>
+                <ul>
+                    <li><strong>Корень (Root)</strong> — верхний узел дерева</li>
+                    <li><strong>Родитель (Parent)</strong> — узел, имеющий потомков</li>
+                    <li><strong>Потомок (Child)</strong> — узел, на который ссылается родитель</li>
+                    <li><strong>Лист (Leaf)</strong> — узел без потомков</li>
+                    <li><strong>Поддерево (Subtree)</strong> — любой узел со своими потомками</li>
+                    <li><strong>Глубина (Depth)</strong> — длина пути от корня до узла</li>
+                    <li><strong>Высота (Height)</strong> — максимальная глубина дерева</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Виды деревьев -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Виды деревьев</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white"><strong>Бинарное дерево</strong></div>
+                            <div class="card-body">Каждый узел имеет ≤ 2 потомков. Основа для BST, куч, выражений.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white"><strong>BST (двоичное дерево поиска)</strong></div>
+                            <div class="card-body">Левый потомок < родитель < правый потомок. Быстрый поиск O(log n).</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white"><strong>AVL-дерево</strong></div>
+                            <div class="card-body">Самобалансирующееся BST, разница высот ≤ 1.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white"><strong>Красно-чёрное дерево</strong></div>
+                            <div class="card-body">BST с цветовой балансировкой. Меньше вращений, чем AVL.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white"><strong>B-дерево</strong></div>
+                            <div class="card-body">Сбалансированное дерево для дисковых хранилищ и баз данных.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white"><strong>Trie (префиксное)</strong></div>
+                            <div class="card-body">Для хранения строк. Автодополнение, проверка орфографии.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Обходы -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Методы обхода деревьев</h2>
+                <table class="table table-striped">
+                    <thead class="table-success">
+                        <tr><th>Метод</th><th>Порядок обхода</th><th>Применение</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>In-order</td><td>Левый → Корень → Правый</td><td>Сортировка в BST</td></tr>
+                        <tr><td>Pre-order</td><td>Корень → Левый → Правый</td><td>Копирование, префиксная запись</td></tr>
+                        <tr><td>Post-order</td><td>Левый → Правый → Корень</td><td>Удаление дерева</td></tr>
+                        <tr><td>Level-order (BFS)</td><td>По уровням</td><td>Поиск в ширину, сериализация</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Сравнительная таблица -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Сравнение реализации на Python, C, C++</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-success">
+                            <tr>
+                                <th>Тип дерева / Обход</th>
+                                <th>Python</th>
+                                <th>C</th>
+                                <th>C++</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Бинарное дерево</strong></td>
+                                <td>Класс с атрибутами <code>left</code>, <code>right</code>, <code>val</code></td>
+                                <td>Структура <code>struct Node</code> с указателями</td>
+                                <td>Класс <code>struct Node</code> с умными указателями или сырыми</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BST-поиск</strong></td>
+                                <td>Рекурсивная функция с проверками</td>
+                                <td>Цикл <code>while (root != NULL)</code></td>
+                                <td>Рекурсивный метод класса или итератор</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AVL-балансировка</strong></td>
+                                <td>Декораторы свойств, вычисление высоты</td>
+                                <td>Функции поворота с двойными указателями</td>
+                                <td>Шаблонный класс с методами rotate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>In-order обход</strong></td>
+                                <td><code>yield from</code> генератор или рекурсия</td>
+                                <td>Рекурсивная функция <code>void inorder()</code></td>
+                                <td>Рекурсия или итератор с <code>std::stack</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pre-order обход</strong></td>
+                                <td>Список + рекурсивный обход</td>
+                                <td>Функция с выводом <code>printf</code></td>
+                                <td><code>std::function</code> или лямбда</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Level-order обход</strong></td>
+                                <td><code>collections.deque</code> очередь</td>
+                                <td>Очередь на массиве или списке</td>
+                                <td><code>std::queue</code> из STL</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Управление памятью</strong></td>
+                                <td>Сборщик мусора автоматический</td>
+                                <td>Ручной <code>malloc</code>/<code>free</code></td>
+                                <td>Деструкторы, <code>std::unique_ptr</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Применение -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Где используются деревья в IT?</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">🗄️ <strong>Базы данных:</strong> B-деревья и B+-деревья в индексах MySQL, PostgreSQL</li>
+                    <li class="list-group-item">📁 <strong>Файловые системы:</strong> NTFS, ext4 используют деревья для организации</li>
+                    <li class="list-group-item">🌐 <strong>Парсинг:</strong> DOM-дерево в браузерах, абстрактное синтаксическое дерево</li>
+                    <li class="list-group-item">🤖 <strong>ИИ/ML:</strong> Деревья решений, Random Forest, XGBoost</li>
+                    <li class="list-group-item">🗜️ <strong>Сжатие:</strong> Код Хаффмана</li>
+                    <li class="list-group-item">🔍 <strong>Автодополнение:</strong> Trie-структуры в поисковиках</li>
+                    <li class="list-group-item">🎮 <strong>Игры:</strong> Деревья поведения для AI, дерево сцен для рендеринга</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

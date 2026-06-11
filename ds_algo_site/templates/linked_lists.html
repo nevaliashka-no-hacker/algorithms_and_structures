@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связные списки — структура данных</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A Справочник</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/trees">🌳 Деревья</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hashing">#️⃣ Хеши</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/linked-lists">🔗 Списки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sorting">📊 Сортировки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/queues-stacks">📦 Очереди/Стек</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-warning">
+            📚 <strong>Изучаете алгоритмы?</strong> Перейдите в раздел <a href="/linked-list-algorithms" class="alert-link">Алгоритмы связных списков</a> — полный список с Big O и частотой на собеседованиях.
+        </div>
+
+        <h1 class="mb-4">🔗 Связные списки (Linked Lists)</h1>
+
+        <!-- Что такое -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Что такое связный список?</h2>
+                <p>Связный список — это <strong>линейная динамическая структура данных</strong>, где элементы (узлы) хранятся в разных участках памяти и связаны указателями. В отличие от массива, не требует непрерывного блока памяти.</p>
+                <h5>Ключевые термины:</h5>
+                <ul>
+                    <li><strong>Узел (Node)</strong> — содержит данные и указатель(и) на следующий(е) узел(ы)</li>
+                    <li><strong>Голова (Head)</strong> — первый узел списка</li>
+                    <li><strong>Хвост (Tail)</strong> — последний узел (указатель на NULL)</li>
+                    <li><strong>NULL / nullptr</strong> — маркер конца списка</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Виды списков -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Виды связных списков</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-warning"><strong>Односвязный (Singly Linked)</strong></div>
+                            <div class="card-body">Каждый узел → один указатель на следующий. Однонаправленный обход.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-warning"><strong>Двусвязный (Doubly Linked)</strong></div>
+                            <div class="card-body">Два указателя: на следующий и предыдущий. Двунаправленный обход.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-warning"><strong>Циклический (Circular)</strong></div>
+                            <div class="card-body">Последний узел указывает на первый (кольцо). Нет NULL.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сравнение с массивом -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Массив vs Связный список</h2>
+                <table class="table table-bordered">
+                    <thead class="table-warning">
+                        <tr><th>Операция</th><th>Массив</th><th>Связный список</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Доступ по индексу</td><td>O(1)</td><td>O(n)</td></tr>
+                        <tr><td>Вставка в начало</td><td>O(n)</td><td>O(1)</td></tr>
+                        <tr><td>Вставка в конец</td><td>O(1)* амортизированное</td><td>O(1) с tail / O(n) без</td></tr>
+                        <tr><td>Удаление из начала</td><td>O(n)</td><td>O(1)</td></tr>
+                        <tr><td>Поиск</td><td>O(n) / O(log n) отсорт.</td><td>O(n)</td></tr>
+                        <tr><td>Память</td><td>Фиксированная / непрерывная</td><td>Динамическая + указатели</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Сравнение языков -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Сравнение реализации на Python, C, C++</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-warning">
+                            <tr><th>Аспект</th><th>Python</th><th>C</th><th>C++</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Узел</strong></td><td>Класс с <code>self.next</code></td><td>Структура с <code>struct Node* next</code></td><td>Структура/класс с указателем</td></tr>
+                            <tr><td><strong>Создание узла</strong></td><td><code>Node(val)</code></td><td><code>malloc(sizeof(Node))</code></td><td><code>new Node(val)</code></td></tr>
+                            <tr><td><strong>Удаление</strong></td><td>Сборщик мусора</td><td><code>free()</code> вручную</td><td><code>delete</code> или умные указатели</td></tr>
+                            <tr><td><strong>Встроенный список</strong></td><td><code>list</code> (на самом деле динамический массив!)</td><td>Нет</td><td><code>std::list</code> (двусвязный)</td></tr>
+                            <tr><td><strong>Итерация</strong></td><td><code>for node in ...</code> генератор</td><td><code>while (ptr != NULL)</code></td><td>Итераторы STL</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-info mt-2">
+                    ⚠️ <strong>Важно для собеседования:</strong> <code>list</code> в Python — это динамический массив, НЕ связный список! Для связного списка нужно писать свой класс.
+                </div>
+            </div>
+        </div>
+
+        <!-- Применение -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Где используются связные списки?</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">🧠 <strong>Управление памятью ОС:</strong> Списки свободных блоков</li>
+                    <li class="list-group-item">🎵 <strong>Музыкальные плееры:</strong> Плейлисты (следующий/предыдущий трек)</li>
+                    <li class="list-group-item">🖼️ <strong>Графические редакторы:</strong> История действий (Undo/Redo)</li>
+                    <li class="list-group-item">📝 <strong>Текстовые редакторы:</strong> Буфер текста (вставка без сдвига)</li>
+                    <li class="list-group-item">⛓️ <strong>Хеш-таблицы:</strong> Метод цепочек для коллизий</li>
+                    <li class="list-group-item">🔄 <strong>LRU Cache:</strong> Двусвязный список + хеш-таблица</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

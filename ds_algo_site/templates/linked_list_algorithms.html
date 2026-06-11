@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгоритмы связных списков — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 DS&A Справочник</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/trees">🌳 Деревья</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/hashing">#️⃣ Хеши</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/linked-list-algorithms">🔗 Алгоритмы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sorting">📊 Сортировки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/queues-stacks">📦 Очереди/Стек</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">⚙️ Алгоритмы связных списков</h1>
+        <div class="alert alert-warning">
+            🎯 <strong>Связные списки — вторая по популярности тема на собеседованиях после массивов!</strong> Обязательно знайте Two Pointers.
+        </div>
+
+        <!-- Базовые операции -->
+        <h2 class="border-bottom pb-2">📌 Базовые операции</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>1. Вставка в начало (Prepend) ⭐</strong></div>
+            <div class="card-body">
+                <p>Создать узел, его <code>next</code> → текущий head, head → новый узел.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(1)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>2. Вставка в конец (Append) ⭐</strong></div>
+            <div class="card-body">
+                <p>С <code>tail</code> указателем: O(1). Без tail: пройти весь список O(n).</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(1) с tail / O(n) без</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>3. Удаление по значению ⭐</strong></div>
+            <div class="card-body">
+                <p>Найти узел, изменить указатель предыдущего на следующий, удалить узел.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>4. Поиск элемента ⭐</strong></div>
+            <div class="card-body">
+                <p>Линейный проход от head до нахождения значения или NULL.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Two Pointers -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Техника двух указателей (Two Pointers) ⭐⭐⭐</h2>
+        <p class="text-muted">Самая важная техника для связных списков на собеседованиях!</p>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>5. Поиск середины списка (Floyd's Tortoise and Hare) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Медленный указатель (1 шаг) и быстрый (2 шага). Когда быстрый в конце → медленный на середине.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>6. Обнаружение цикла (Cycle Detection) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Те же быстрый и медленный указатели. Если встретились → цикл есть. Один из топ-вопросов!</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>7. Поиск начала цикла ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>После обнаружения цикла: один указатель с головы, другой с места встречи. Двигаются по 1 шагу → встреча в начале цикла.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>8. N-й узел с конца ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Два указателя: первый на n шагов вперёд, затем оба двигаются. Когда первый в конце → второй на N-м с конца.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Разворот и модификация -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Разворот и модификация</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>9. Разворот списка (Reverse Linked List) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Итеративно: три указателя (prev, curr, next). Меняем направление ссылок. <strong>Обязательный алгоритм!</strong></p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1) итеративно / O(n) рекурсивно</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>10. Разворот подсписка (Reverse Sublist)</strong></div>
+            <div class="card-body">
+                <p>Разворот между позициями m и n. Требует сохранения узла перед началом разворота.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>11. Удаление N-го узла с конца ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Найти N-й с конца (алгоритм 8) + изменить указатели для удаления.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>12. Удаление дубликатов из отсортированного списка</strong></div>
+            <div class="card-body">
+                <p>Проход с одним указателем: если текущий == следующий → пропустить следующий.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Слияние -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Слияние и объединение</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>13. Слияние двух отсортированных списков (Merge) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Два указателя, берём меньший узел, двигаем указатель. Часть Merge Sort.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n + m)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>14. Пересечение двух списков (Intersection) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Выровнять длины (пройти более длинный на разницу), затем идти синхронно до совпадения узлов.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n + m)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-warning"><strong>15. Чередование (Zipper / Alternate merge)</strong></div>
+            <div class="card-body">
+                <p>Поочерёдно брать узлы из двух списков. Используется в перетасовке.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n + m)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Продвинутые -->
+        <h2 class="border-bottom pb-2 mt-5">📌 Продвинутые алгоритмы</h2>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>16. Палиндром (Palindrome Linked List) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Найти середину (алг. 5) → развернуть вторую половину (алг. 9) → сравнить две половины.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>17. Сортировка связного списка (Merge Sort) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Разделить пополам (алг. 5) → рекурсивно сортировать → слить (алг. 13). <strong>Лучший выбор для списков!</strong></p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n log n)</td><th>Память</th><td>O(log n) стек рекурсии</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>18. Перестановка в группы по K (Reverse in K-Groups) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Разворот группами по K узлов. Сложный алгоритм, часто на собеседованиях.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>19. Копирование списка со случайным указателем (Deep Copy) ⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Каждый узел имеет <code>next</code> и <code>random</code>. Решение: вставить копии между оригинальными узлами.</p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(n)</td><th>Память</th><td>O(1) без хеш-таблицы</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header bg-dark text-white"><strong>20. LRU Cache (Least Recently Used) ⭐⭐⭐</strong></div>
+            <div class="card-body">
+                <p>Двусвязный список + хеш-таблица. O(1) get и put. <strong>Очень часто на собеседованиях!</strong></p>
+                <table class="table table-sm table-bordered">
+                    <tr><th>Время</th><td>O(1) обе операции</td><th>Память</th><td>O(capacity)</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Итоговая таблица -->
+        <div class="card mt-5 mb-4">
+            <div class="card-header bg-warning"><h3>📊 Сводная таблица</h3></div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr><th>#</th><th>Алгоритм</th><th>Время</th><th>Память</th><th>Собесы</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Вставка в начало</td><td>O(1)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>2</td><td>Вставка в конец</td><td>O(1)*</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>3</td><td>Удаление по значению</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>4</td><td>Поиск</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>5</td><td>Середина списка</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>6</td><td>Обнаружение цикла</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>7</td><td>Начало цикла</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>8</td><td>N-й с конца</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>9</td><td>Разворот списка</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>10</td><td>Разворот подсписка</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>11</td><td>Удаление N-го с конца</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>12</td><td>Удаление дубликатов</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐</td></tr>
+                        <tr><td>13</td><td>Слияние отсорт. списков</td><td>O(n+m)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>14</td><td>Пересечение списков</td><td>O(n+m)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>15</td><td>Чередование</td><td>O(n+m)</td><td>O(1)</td><td>⭐⭐</td></tr>
+                        <tr><td>16</td><td>Палиндром</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>17</td><td>Сортировка (Merge Sort)</td><td>O(n log n)</td><td>O(log n)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>18</td><td>Reverse K-Groups</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                        <tr><td>19</td><td>Deep Copy</td><td>O(n)</td><td>O(1)</td><td>⭐⭐⭐⭐</td></tr>
+                        <tr><td>20</td><td>LRU Cache</td><td>O(1)</td><td>O(n)</td><td>⭐⭐⭐⭐⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="/linked-lists" class="btn btn-warning mb-5">← Назад к теории списков</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

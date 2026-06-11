@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хеширование в структурах данных</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">📊 Data Structures</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trees">🌳 Деревья</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/hashing">#️⃣ Теория</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/hash-algorithms">⚙️ Алгоритмы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="alert alert-primary">
+            📚 <strong>Изучаете алгоритмы?</strong> Перейдите в раздел <a href="/hash-algorithms" class="alert-link">Алгоритмы хеширования</a> — все хеш-функции, коллизии и методы разрешения.
+        </div>
+
+        <h1 class="mb-4">#️⃣ Хеширование</h1>
+
+        <!-- Что такое хеширование -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Что такое хеширование?</h2>
+                <p>Хеширование — это процесс преобразования входных данных произвольного размера в <strong>фиксированную строку (хеш)</strong> с помощью хеш-функции. Это необратимая операция.</p>
+                <h5>Свойства хорошей хеш-функции:</h5>
+                <ul>
+                    <li>✅ <strong>Детерминированность</strong> — одинаковый ввод → одинаковый хеш</li>
+                    <li>✅ <strong>Быстрота вычисления</strong></li>
+                    <li>✅ <strong>Равномерное распределение</strong> — минимизация коллизий</li>
+                    <li>✅ <strong>Лавинный эффект</strong> — малое изменение ввода сильно меняет хеш</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Виды хеширования -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Виды хеширования</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white"><strong>Хеш-таблицы (Hash Map)</strong></div>
+                            <div class="card-body">Ключ → Хеш → Индекс массива. O(1) доступ. Python dict, C++ unordered_map.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-primary text-white"><strong>Криптографическое хеширование</strong></div>
+                            <div class="card-body">SHA-256, MD5. Необратимость, стойкость к коллизиям. Безопасность.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Коллизии -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Разрешение коллизий</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header"><strong>Метод цепочек (Chaining)</strong></div>
+                            <div class="card-body">Каждая ячейка — связный список. Все коллизии в одну ячейку.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header"><strong>Открытая адресация</strong></div>
+                            <div class="card-body">Поиск следующей свободной ячейки: линейное, квадратичное, двойное хеширование.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Сравнительная таблица -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Сравнение реализации на Python, C, C++</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Аспект</th>
+                                <th>Python</th>
+                                <th>C</th>
+                                <th>C++</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Встроенная хеш-таблица</strong></td>
+                                <td><code>dict</code> — готовая, динамическая</td>
+                                <td>Нет встроенной. Реализуется вручную</td>
+                                <td><code>std::unordered_map</code>, <code>std::map</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Хеш-функция</strong></td>
+                                <td><code>hash()</code> встроенная</td>
+                                <td>Пишется своя (djb2, sdbm и др.)</td>
+                                <td><code>std::hash</code> специализация</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Структура таблицы</strong></td>
+                                <td>Динамический массив + открытая адресация</td>
+                                <td>Массив указателей + связные списки (цепочки)</td>
+                                <td>Массив buckets + цепочки (по умолчанию)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Коллизии</strong></td>
+                                <td>Открытая адресация (псевдослучайная)</td>
+                                <td>Обычно метод цепочек</td>
+                                <td>Метод цепочек</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Рехэширование</strong></td>
+                                <td>Автоматическое при загрузке > 2/3</td>
+                                <td>Ручное, пересоздание массива</td>
+                                <td>Автоматическое через <code>rehash()</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Крипто-хеши</strong></td>
+                                <td><code>hashlib</code> (SHA-256, MD5)</td>
+                                <td><code>openssl/sha.h</code> библиотека</td>
+                                <td><code>std::hash</code> НЕ криптостойкий, нужны библиотеки</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Применение -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Где используется хеширование в IT?</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">🗄️ <strong>Базы данных:</strong> Хеш-индексы для быстрого поиска</li>
+                    <li class="list-group-item">🔐 <strong>Безопасность:</strong> Хранение паролей (bcrypt, Argon2)</li>
+                    <li class="list-group-item">🌐 <strong>Кеширование:</strong> Redis/Memcached — ключ-значение</li>
+                    <li class="list-group-item">📦 <strong>Контроль целостности:</strong> MD5/SHA для проверки файлов</li>
+                    <li class="list-group-item">🔗 <strong>Блокчейн:</strong> Хеш транзакций, майнинг</li>
+                    <li class="list-group-item">📋 <strong>Git:</strong> SHA-1 для идентификации коммитов</li>
+                    <li class="list-group-item">🖼️ <strong>Дедупликация:</strong> Поиск одинаковых файлов</li>
+                    <li class="list-group-item">🌍 <strong>CDN/Сети:</strong> Consistent hashing для распределения</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

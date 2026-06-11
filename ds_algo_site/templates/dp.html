@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Динамическое программирование — полный справочник</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #e83e8c;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="/">📊 DS&A</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>🧩 Динамическое программирование (14 паттернов)</h1>
+        <div class="alert" style="background-color: #fce4ec;">🎯 DP — самая сложная тема. Решается всё шаблонами. Выучите паттерны!</div>
+
+        <!-- ТЕОРИЯ -->
+        <div class="card mb-4"><div class="card-body">
+            <h2>Что такое DP?</h2>
+            <p>Метод решения задач путём разбиения на <strong>перекрывающиеся подзадачи</strong> с <strong>оптимальной подструктурой</strong>.</p>
+            <h5>Два подхода:</h5>
+            <ul>
+                <li><strong>Мемоизация (Top-Down):</strong> Рекурсия + кеш результатов</li>
+                <li><strong>Табуляция (Bottom-Up):</strong> Заполнение таблицы от малых подзадач к большим</li>
+            </ul>
+            <h5>Когда применять DP:</h5>
+            <ul>
+                <li>Задача просит оптимум (минимум, максимум, количество способов)</li>
+                <li>Решение можно выразить через решения меньших подзадач</li>
+                <li>Есть перекрывающиеся вычисления (одни и те же подзадачи много раз)</li>
+            </ul>
+        </div></div>
+
+        <!-- ПАТТЕРНЫ -->
+        <h2 class="border-bottom pb-2">📌 Паттерны DP</h2>
+
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>1. Числа Фибоначчи (введение) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>F(n) = F(n-1) + F(n-2). Классика для объяснения мемоизации vs табуляции.</p><table class="table table-sm table-bordered"><tr><th>Без DP</th><td>O(2ⁿ)</td><th>С DP</th><td>O(n)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>2. Knapsack 0/1 (Рюкзак) ⭐⭐⭐⭐⭐</strong></div><div class="card-body"><p>Даны веса и стоимости. Выбрать предметы с макс. стоимостью, умещаясь в вес W. Нельзя дробить.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(n*W)</td><th>Память</th><td>O(W) с оптимизацией</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>3. LCS (Longest Common Subsequence) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Наибольшая общая подпоследовательность двух строк.</p><table class="table table-sm table-bordered"><tr><th>Время</th><td>O(n*m)</td><th>Память</th><td>O(n*m)</td></tr></table></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>4. LIS (Longest Increasing Subsequence) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>DP за O(n²) или бинарный поиск за O(n log n).</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>5. Coin Change (Размен монет) ⭐⭐⭐⭐</strong></div><div class="card-body"><p>Два варианта: минимальное число монет (BFS/DP) и количество способов (как рюкзак).</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>6. Редакционное расстояние (Левенштейна) ⭐⭐⭐</strong></div><div class="card-body"><p>Минимальное число вставок/удалений/замен для превращения строки A в B. O(n*m).</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>7. DP по матрице (пути) ⭐⭐⭐</strong></div><div class="card-body"><p>Путь с максимальной/минимальной суммой, количество путей. dp[i][j] = max(dp[i-1][j], dp[i][j-1]) + grid[i][j].</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>8. DP по подстрокам (палиндромы) ⭐⭐⭐</strong></div><div class="card-body"><p>LPS (Longest Palindromic Substring), подсчёт палиндромных подстрок. dp[i][j] — палиндром ли s[i..j].</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>9. DP с битовыми масками ⭐⭐⭐</strong></div><div class="card-body"><p>Когда n маленькое (≤ 20). Задача коммивояжёра (TSP): dp[mask][i] — посетили города mask, стоим в i.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>10. DP на деревьях ⭐⭐⭐</strong></div><div class="card-body"><p>Диаметр дерева, сумма путей, независимое множество на дереве. Рекурсия с возвратом двух состояний.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>11. DP с префиксными суммами ⭐⭐</strong></div><div class="card-body"><p>Оптимизация DP через префиксные суммы для сокращения размерности.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>12. Partition Problem (разбиение) ⭐⭐⭐</strong></div><div class="card-body"><p>Можно ли разбить массив на две части с равной суммой? Частный случай рюкзака.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>13. DP по отрезкам ⭐⭐</strong></div><div class="card-body"><p>Умножение цепочки матриц, burst balloons. dp[i][j] по всем k между i и j.</p></div></div>
+        <div class="card mb-3"><div class="card-header" style="background-color: #e83e8c; color: white;"><strong>14. Мемоизация в графах ⭐⭐⭐</strong></div><div class="card-body"><p>Подсчёт путей в DAG, наибольший путь. DP + топологическая сортировка.</p></div></div>
+
+        <div class="card mt-5 mb-4"><div class="card-header" style="background-color: #e83e8c; color: white;"><h3>📊 Сводная таблица</h3></div><div class="card-body table-responsive"><table class="table table-striped"><thead><tr><th>#</th><th>Паттерн</th><th>Время</th><th>Собесы</th></tr></thead><tbody><tr><td>1</td><td>Фибоначчи</td><td>O(n)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>2</td><td>Knapsack 0/1</td><td>O(nW)</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>3</td><td>LCS</td><td>O(nm)</td><td>⭐⭐⭐⭐</td></tr><tr><td>4</td><td>LIS</td><td>O(n log n)</td><td>⭐⭐⭐⭐</td></tr><tr><td>5</td><td>Coin Change</td><td>O(n*m)</td><td>⭐⭐⭐⭐</td></tr><tr><td>6</td><td>Левенштейн</td><td>O(nm)</td><td>⭐⭐⭐</td></tr><tr><td>7</td><td>DP по матрице</td><td>O(n*m)</td><td>⭐⭐⭐</td></tr><tr><td>8</td><td>Палиндромы</td><td>O(n²)</td><td>⭐⭐⭐</td></tr><tr><td>9</td><td>Битовые маски</td><td>O(2ⁿ*n²)</td><td>⭐⭐⭐</td></tr><tr><td>10</td><td>DP на деревьях</td><td>O(n)</td><td>⭐⭐⭐</td></tr><tr><td>11</td><td>Префиксные суммы</td><td>Ускорение</td><td>⭐⭐</td></tr><tr><td>12</td><td>Partition</td><td>O(n*sum)</td><td>⭐⭐⭐</td></tr><tr><td>13</td><td>DP по отрезкам</td><td>O(n³)</td><td>⭐⭐</td></tr><tr><td>14</td><td>DP в графах</td><td>O(V+E)</td><td>⭐⭐⭐</td></tr></tbody></table></div></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
