@@ -1,36 +1,24 @@
-''' Универсальная хеш-функция (Картер и Вегман)'''
+'''Так, стоп! Время на подготовку очень огрничено, 
+а я переписываю просто хеш таблицу с линейнфм пробированием и 
+лишб чуток меняю строчки (где высчитывается index и применчеося
+функция хеширования. В общем, здесь нужно только функцию 
+хеширования прописать и все...'''
 
-class HashNode:
-    def __init__(self):
-        pass
 
 class QuadraticHashTable:
-    def __init__(self):
-        pass
+    def __init__(self, n = 3, cnt = 0):
+        self.table = [(None, None, "free") for _ in range(n)]
+        self.n = n
+        self.cnt = cnt
+        
+    def insert(self, key, value):
+        if (cnt + 1) % self.n >= 0.7:
+            self.rehash()
+            
+        for i in range(self.n):
+            index = (hashed(key) + i * i) % self.n
+            if self.table[index][2] == "free":
+                break
+                             
 
 
-table = QuadraticHashTable()
-
-table.insert("name", "tom")
-table.show()
-print()
-table.insert("email", "tom@gmail.com")
-table.show()
-print()
-table.insert("telephone", "+78910111213")
-
-table.show()
-print()
-
-print(table.search("name"))
-print()
-
-table.delete("name")
-table.show()
-print()
-
-print(table.search("name"))
-
-table.insert("company", "1C")
-
-table.show()
